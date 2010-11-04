@@ -2,6 +2,6 @@
 		<h2>Moderatoren</h2>
 	
 		<ul id="Moderatoren">
-			<li>Max Mustermann</li>
+			<li>Marcel Feierabend</li>
 		</ul>
 	</div>
