@@ -7,5 +7,5 @@
 		</ul -->
 			<input name="q" id="search" value="" type="text">
 			<input class="button" value="Go" type="submit">
-			<input type="checkbox" name="Name" value=""> Nur neue und erweiterte Themen
+			<!-- a href="javascript:anzeigen('post');">Toggle</a -->
 	</div>
