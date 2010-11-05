@@ -1,84 +1,128 @@
-	body {
-		color: black; background-color: white;
-		font-size: 100.01%;
-		font-family: Georgia, Palatino, Palatino Linotype, FreeSerif, serif, Verdana, Helvetica, sans-serif;/*Helvetica,Arial,sans-serif;*/
-		margin: 0; padding: 1em;
-		min-width: 41em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
-	}
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Georgia, Palatino, Palatino Linotype, FreeSerif, serif, Verdana, Helvetica, sans-serif;/*Helvetica,Arial,sans-serif;*/
+    margin: 0; padding: 1em;
+    min-width: 41em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
+  }
   
   div#Seite {
     text-align: left;    /* Seiteninhalt wieder links ausrichten */
     margin: 0 auto;      /* standardkonforme horizontale Zentrierung */
-    width: 760px;
-    padding: 0.5em;
+    width: 750px;
+    padding: 0.0em;
     border: 2px ridge silver;
+  	background-image:url(/img/symposion.jpg);
+  	background-position: 0 0;
+  	background-repeat:no-repeat;
   }
   
   div#pagehead {
   	/*height: 100px;*/
-  	height: 146px;
-  	background-color: white;
-  	background-image:url(/img/symposion.jpg);
-  	background-repeat:no-repeat;
+  	height: 128px; /*146px;*/
+  	background-color: transparent;
     border: 1px ridge silver;
+    margin: 0.5em; padding: 0em;
   }
-  
 
-  h1 {
+  div#pagehead h1 {
     font-size: 1.5em;
+    margin: 2em 0 0 0; padding: 0;
     /*margin: 0 0 0.7em; padding: 0.3em;
     text-align: center;
     background-color: #fed;
     border: 2px ridge silver;*/
   }
   
-  ul {
-    font-size: 0.83em;
-    float: left; width: 16em;
-    margin: 0; padding: 0;
-    border: 0px dashed silver;
+  div#pagehead p {
   }
-  ul li {
-    list-style: none;
-    margin: 0; padding: 0.5em;
+  
+  div#login {
+  	float: right;
+  	background-color: white;
+  	font-size: 0.83em;
+  	padding: 0.3em;
+    opacity:0.7; 
+    /*filter:alpha(opacity=70);*/
   }
-
-  ul#Navigation {
-    font-size: 0.83em;
-    float: left; width: 16em;
-    /*margin: 0 0 1.2em; padding: 0;*/
-    margin: 0; padding: 0;
-    border: 0px dashed silver;
-  }
-  ul#Navigation li {
-    list-style: none;
-    margin: 0; padding: 0.5em;
-  }
-  ul#Navigation a {
-    /*display: block;*/
-    padding: 0.2em;
-    font-weight: bold;
-  }
-  ul#Navigation a:link {
-    color: black; background-color: #eee;
-  }
-  ul#Navigation a:visited {
-    color: #666; background-color: #eee;
-  }
-  ul#Navigation a:hover {
-    color: black; background-color: white;
-  }
-  ul#Navigation a:active {
-    color: white; background-color: gray;
-  }
-
+  
   div#Menu {
-    font-size: 0.83em;
-    float: left; width: 16em;
-    margin: 0 0 1.2em; padding: 0;
+    float: left; width: 200px;
+    margin: 0em; padding: 0.5em 0 0 0.5em;
     border: 0px dashed silver;
   }
   
+  div#Menu div {
+    margin-bottom: 2em;
+    border: 0px dashed silver;
+  }
+  div#Menu h2 {
+    line-height: 2em;
+    font-size: 1em;
+    /*font-variant:small-caps;*/
+    /*letter-spacing:0.1em*/
+    margin: 0.2em 0 0.2em 0;
+  }
+
+
+  div#Inhalt {
+    /*margin: 0 12em 1em 16em;*/
+    font-size: 1.0em;
+  	margin: 0 0 0 220px; padding: 0.5em 0 0 0em;
+    border: 0px dashed silver;
+  }
+  * html div#Inhalt {
+    height: 1em;  /* Workaround gegen den 3-Pixel-Bug des Internet Explorer bis Version 6 */
+  }
+  div#Inhalt h2 {
+    line-height: 2em;
+    font-size: 1.2em;
+    margin: 0.2em 0 0.2em 0;
+  }
+  div#Inhalt p {
+    font-size: 1em;
+    margin: 12em;/*0 0 12em 0;*/
+    /*margin: 1em 0;*/
+  }
+
+  
+  
+  div#search input#search {
+  	margin: 0 0 0 1em;
+  	width: 120px;
+  }
+  
+  
+  
+  
+div#Menu ul {
+    font-size: 0.83em;
+	margin: 0 0 0 1em; padding: 0;
+    border: 0px dashed silver;
+  }
+  div#Menu ul li {
+    list-style: none;
+    margin: 0.0em; padding: 0.3em;
+  }
+
+  div#Menu ul a {
+    /*display: block;*/
+    /*padding: 0.2em;*/
+    font-weight: bold;
+  }
+  div#Menu ul a:link {
+    color: black; background-color: #eee;
+  }
+  div#Menu ul a:visited {
+    color: #666; background-color: #eee;
+  }
+  div#Menu ul a:hover {
+    color: black; background-color: white;
+  }
+  div#Menu ul a:active {
+    color: white; background-color: gray;
+  }
+
   
 	div#post {
 		border: 0px dashed silver;
@@ -108,34 +152,10 @@
 		margin: 0; padding: 0.2em;
   	}
 
-	div#Menu h2 {
-		font-size: 1.2em;
-		margin: 0.2em 0;
-	}
-  div#Inhalt {
-    /*margin: 0 12em 1em 16em;*/
-    margin: 0 1em 1em 14em;
-    padding: 0 1em;
-    border: 0px dashed silver;
-  }
-  * html div#Inhalt {
-    height: 1em;  /* Workaround gegen den 3-Pixel-Bug des Internet Explorer bis Version 6 */
-  }
-  div#Inhalt h2 {
-    font-size: 1.2em;
-    margin: 0.2em 0;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-  }
-  div#Inhalt p {
-    font-size: 1em;
-    /*margin: 1em 0;*/
-  }
-
 
 	div#topics {
 		font-size:1em;	
-		line-height: 1.2em;	
+		line-height: 1em;	
 	}
 	div#topics a:link {
 		text-decoration:none;		
@@ -150,7 +170,7 @@
 	}
 	div#topics p {
 		margin: 0; padding: 0;
-		margin-bottom:0.3em;
+		margin-bottom:0.5em;
 	}
 	div#topics em {
 		margin-left: 0.2em;
@@ -159,7 +179,7 @@
 	div#topics span {
 		margin-left: 0.2em;
 		font-size:0.9em;		
-		color: silver;		
+		color: gray;		
 	}
 
   p#Fusszeile {

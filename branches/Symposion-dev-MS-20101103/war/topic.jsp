@@ -1,10 +1,20 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-       "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.google.appengine.api.users.User" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%
+    UserService userService = UserServiceFactory.getUserService();
+    User user = userService.getCurrentUser();
+%>
+
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
+    <title>Symposion</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- link rel="icon" type="image/gif" href="animated_favicon1.gif" -->
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-	<title>Symposion</title>
+	<script type="text/javascript" src="../scripts/javascript.js" charset="ISO-8859-1"></script>
 	<style type="text/css">
 		<!--
 		-->
@@ -14,6 +24,21 @@
 <div id="Seite">
 
 		<div id="pagehead">
+<%
+    if (user != null) {
+%>
+<div id="login">
+Angemeldet als: <%= user.getNickname() %> (<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">abmelden</a>)
+</div>
+<%
+    } else {
+%>
+<div id="login">
+<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">anmelden</a>
+</div>
+<%
+    }
+%>
 			<%@ include file="_pagehead.jsp" %>
 		</div>
 		
@@ -26,12 +51,15 @@
 
 <div id="Inhalt">
 
-	<a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a>
+	<a class="navigation" href="#neuePosts">Zu den neuen BeitrÃ¤gen</a>
 
 	<h2>Problem rendering tikz-qtree output</h2>
 
-	<div id="post">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h5></a></div>
+			Zur Zeit werden alle BetrÃ¤ge angezeigt. <a href="javascript:toggle();">Toggle</a>
+			<hr />
+
+	<div id="post" name="oldPost" class="test">
+		<div id="header"><a name=""><h5>Kristian GÃ¤rtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h5></a></div>
 		<div id="content">
 			<p>Hi,</p>
 			<p>tikz-qtree is a TeX package that generates syntactic trees. All other PDF viewers I&#39;ve tried have no problem rendering these trees, but Sumatra v1.1 makes a mess of them.</p>
@@ -46,8 +74,8 @@
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<div id="post">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:50 Uhr:</h5></a></div>
+	<div id="post" name="oldPost">
+		<div id="header"><a name=""><h5>Kristian GÃ¤rtner schrieb am 12. Oktober 2010 um 12:50 Uhr:</h5></a></div>
 		<div id="content">
 			<p>Update: I&#39;ve tried Sumatra 2.2 pre-release, and the problem persists.</p>
 			<p>KG</p>
@@ -55,7 +83,7 @@
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<div id="post">
+	<div id="post" name="oldPost">
 		<div id="header"><a name=""><h5>Ute Zweig schrieb am 12. Oktober 2010 um 14:20 Uhr:</h5></a></div>
 		<div id="content">
 			<p>Thanks for the report. It&#39;d be great if you could also upload the PDF document itself so that we investigate what might be the issue.</p>
@@ -63,8 +91,8 @@
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<div id="post">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 14:53 Uhr:</h5></a></div>
+	<div id="post" name="oldPost">
+		<div id="header"><a name=""><h5>Kristian GÃ¤rtner schrieb am 12. Oktober 2010 um 14:53 Uhr:</h5></a></div>
 		<div id="content">
 			<p>The LaTeX code to produce the tree is:</p>
 			<pre>\documentclass{article}
@@ -87,15 +115,15 @@
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<div id="post">
+	<div id="post" name="oldPost">
 		<div id="header"><a name=""><h5>Ute Zweig schrieb am 12. Oktober 2010 um 15:02 Uhr:</h5></a></div>
 		<div id="content">
 			<p>Thanks for the document. I&#39;ve opened <a href="http://www.google.de" rel="nofollow">http://code.google.com/p/issues/detail?id=1063</a> for tracking your issue.</p>
 		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
-	<h6><a name="neuePosts">Neue Beiträge:</a></h6>
-	<div id="post">
+	<h6><a name="neuePosts">Neue BeitrÃ¤ge:</a></h6>
+	<div id="post" name="newPost">
 		<div id="header"><a name=""><h5><!-- a name="neuePosts"></a -->Ute Zweig schrieb gestern um 15:21 Uhr:</h5></a></div>
 		<div id="content">
 			<p>FYI: The next prerelease build should correctly render your document.</p>
@@ -103,13 +131,15 @@
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<div id="post">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb heute um 17:02 Uhr:</h5></a></div>
+	<div id="post" name="newPost">
+		<div id="header"><a name=""><h5>Kristian GÃ¤rtner schrieb heute um 17:02 Uhr:</h5></a></div>
 		<div id="content">
 			<p>Great, thanks!</p>
 		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
+	
+	<hr />
 
 	<!-- div id="post">
 		<div id="header"><a name=""><h5><a name="neuePosts">NEU:</a> ...</h5></a></div>
@@ -121,7 +151,7 @@
 	<div id="buttons">
 		<!-- input type="button" name="Name" value="Neue Antwort erstellen" onclick="Aktion" -->
 		<form action="/newComment.jsp" method="link">
-		<input type="submit" value="Kommentar hinzufügen">
+		<input type="submit" value="Kommentar hinzufÃ¼gen">
 		</form>
 	</div>
 	

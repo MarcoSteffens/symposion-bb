@@ -2,6 +2,10 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%
+    UserService userService = UserServiceFactory.getUserService();
+    User user = userService.getCurrentUser();
+%>
 
 <html>
   <head>
@@ -12,25 +16,25 @@
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-
-<%
-    UserService userService = UserServiceFactory.getUserService();
-    User user = userService.getCurrentUser();
-    if (user != null) {
-%>
-<p>Hello, <%= user.getNickname() %>! (You can
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-<%
-    } else {
-%>
-<p><a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a></p>
-<%
-    }
-%>
    
 	<div id="Seite">
 	
 		<div id="pagehead">
+<%
+    if (user != null) {
+%>
+<div id="login">
+Angemeldet als: <%= user.getNickname() %> (<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">abmelden</a>)
+</div>
+<%
+    } else {
+%>
+<div id="login">
+<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">anmelden</a>
+</div>
+<%
+    }
+%>
 			<%@ include file="_pagehead.jsp" %>
 		</div>
 		
@@ -46,7 +50,8 @@
 		
 			<h2>Ein Board</h2>
 		
-			<input type="checkbox" name="Name" value=""> Nur neue und erweiterte Themen anzeigen
+			Zur Zeit werden alle Beträge angezeigt. <a href="javascript:toggle();">Toggle</a>
+			<hr />
 		
 			<div id="topics">
 				<p><!-- img align="left" id="link1184321" src="/img/pin.jpg" alt="Sticky" border="0" height="16" width="16" / -->
@@ -101,6 +106,8 @@
 				<p><a href="/topic.jsp?comments=24" title="">When will be available official 64-bit version?</a>
 					<em>Leon Diederich</em><span>(2)</span></p>
 			</div>
+			
+			<hr />
 			
 			<!-- div id="buttons"><input type="button" name="Name" value="Neues Thema erstellen" onclick="Aktion"></div -->
 			<div id="buttons"><!-- a href="/newTopic.jsp">Neues Thema hinzufügen</a -->
