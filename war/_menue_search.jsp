@@ -1,5 +1,5 @@
 	<div id="search">
-		<h2>Suche</h2>
+		<h2><a accesskey="4" name=""></a>Suche</h2>
 	
 		<!-- ul id="Suche">
 			<li><input name="q" id="search" value="" type="text">
