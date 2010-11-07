@@ -1,3 +1,4 @@
+/*
 function anzeigen(das) {
 	if (document.getElementById(das).style.display=='none') {
 		document.getElementById(das).style.display='block';
@@ -26,6 +27,7 @@ function toggleOne() {
 		}
 	}
 }
+*/
 
 function toggle() {
 	var newPostElements;
@@ -44,9 +46,3 @@ function toggle() {
 		
 	}
 }
-
-
-
-
-
-

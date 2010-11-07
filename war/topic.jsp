@@ -2,10 +2,6 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%
-    UserService userService = UserServiceFactory.getUserService();
-    User user = userService.getCurrentUser();
-%>
 
 <html>
 <head>
@@ -24,21 +20,6 @@
 <div id="Seite">
 
 		<div id="pagehead">
-<%
-    if (user != null) {
-%>
-<div id="login">
-Angemeldet als: <%= user.getNickname() %> (<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">abmelden</a>)
-</div>
-<%
-    } else {
-%>
-<div id="login">
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">anmelden</a>
-</div>
-<%
-    }
-%>
 			<%@ include file="_pagehead.jsp" %>
 		</div>
 		
@@ -51,98 +32,67 @@ Angemeldet als: <%= user.getNickname() %> (<a href="<%= userService.createLogout
 
 <div id="Inhalt">
 
-	<a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a>
+	<a class="inpagenav" accesskey="0" href="#neuePosts">Zu den neuen Beiträgen</a>
 
-	<h2>Problem rendering tikz-qtree output</h2>
+	<h2><span accesskey="T" class="inpagenav">Thema:</span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</h2>
 
-			Zur Zeit werden alle Beträge angezeigt. <a href="javascript:toggle();">Toggle</a>
-			<hr />
+			<!-- span class="inpagenav">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Toggle</a></span-->
+			<!-- div id="separator"></div -->
 
 	<div id="post" name="oldPost" class="test">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h3></a></div>
 		<div id="content">
-			<p>Hi,</p>
-			<p>tikz-qtree is a TeX package that generates syntactic trees. All other PDF viewers I&#39;ve tried have no problem rendering these trees, but Sumatra v1.1 makes a mess of them.</p>
-			<p>This is how they should look (rendered by Foxit Reader):</p>
-			<p><a href="http://www.google.de/blabla" rel="nofollow">http://bit.ly/cTaJwm</a></p>
-			<p>but instead, Sumatra produces this:</p>
-			<p><a href="http://www.google.de/blabla)" rel="nofollow">http://bit.ly/bw9yBc</a></p>
-			<p>Any idea why?</p>
-			<p>Cheers,<br />
-			KG</p>
-		</div>
+<p>Ich überlese noch einmal Ihren letzten werten Brief vom 30. September – und komme nun nur mit wenigen Zeilen Antwort, um Ihnen noch vor Jahresschluß herzlich die Hand zu drücken.</p>
+<p>Wie ist das alles seit drei Monaten geworden! wer hätte damals geglaubt, daß der Kampf tief in einen gräßlichen Winter hinein dauern und noch am letzten Tage des Jahres ohne Aussicht auf nahe Beendigung sein würde.</p>		</div>
+		<div id="footer">&nbsp;<a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
+	</div>
+	
+	<div id="post" name="oldPost">
+		<div id="header"><a name=""><h3>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:50 Uhr:</h3></a></div>
+		<div id="content">
+<p>An diesen Jahresschluß werde ich mein Leben lang denken! und wahrlich am wenigsten um meines individuellen äußeren Schicksals willen. Die zwei großen Geistesvölker des jetzigen Kontinents sind in einer vollständigen Häutung ihrer ganzen Kultur begriffen, und was den Menschen vor Juli 1870 erfreute und interessierte, davon wird ihn 1871 ganz unendlich vieles nicht mehr berühren – aber ein sehr großes Schauspiel kann es abgeben, wenn dann unter vielen Schmerzen das Neue geboren wird.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
 	<div id="post" name="oldPost">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:50 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3>Ute Zweig schrieb am 12. Oktober 2010 um 14:20 Uhr:</h3></a></div>
 		<div id="content">
-			<p>Update: I&#39;ve tried Sumatra 2.2 pre-release, and the problem persists.</p>
-			<p>KG</p>
-		</div>
+<p>Die Änderung im deutschen Geist wird so groß sein als die im französischen; zunächst wird überall der Klerus beider Konfessionen sich als den nächsten Erben der erschütterten Gemüter betrachten, allein es wird daneben bald ganz anderes laut werden. Auch die Aktien des ›Philosophen‹ [Fußnote]Schopenhauer steigen bald stark, während Hegel mit den diesjährigen Jubiläumsschriften als echter Jubilar seine definitive Retraite nehmen könnte.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
 	<div id="post" name="oldPost">
-		<div id="header"><a name=""><h5>Ute Zweig schrieb am 12. Oktober 2010 um 14:20 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3>Kristian Gärtner schrieb am 12. Oktober 2010 um 14:53 Uhr:</h3></a></div>
 		<div id="content">
-			<p>Thanks for the report. It&#39;d be great if you could also upload the PDF document itself so that we investigate what might be the issue.</p>
-		</div>
+<p>Das Bedenklichste ist aber nicht der jetzige Krieg, sondern die Ära von Kriegen, in welche wir eingetreten sind, und auf diese muß sich der neue Geist einrichten. O wie vieles, das den Gebildeten lieb gewesen, werden sie als geistigen ›Luxus‹ über Bord werfen müssen! und wie eigentümlich anders, als wir sind, wird das neue Geschlecht emporwachsen. Es kann geschehen, daß wir den Jüngeren vorkommen, wie die auf lauter Wohlleben eingerichteten französischen Émigrés den Leuten erschienen, zu welchen sie geflüchtet waren.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
 	<div id="post" name="oldPost">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb am 12. Oktober 2010 um 14:53 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3>Ute Zweig schrieb am 12. Oktober 2010 um 15:02 Uhr:</h3></a></div>
 		<div id="content">
-			<p>The LaTeX code to produce the tree is:</p>
-			<pre>\documentclass{article}
-	
-\usepackage{tikz,tikz-qtree}
-
-\begin{document}
-
-\Tree [.S [.NP [.Det the ] [.N cat ] ]
-[.VP [.V sat ]
-[.PP [.P on ]
-[.NP [.Det the ] [.N mat ] ] ] ] ]
-
-\end{document}</pre>
-			<p>The PDF is here:</p>
-			<p><a href="http://www.google.de" rel="nofollow">http://bit.ly/alonfC</a></p>
-			<p>Cheers,<br />
-			KG</p>
-		</div>
+<p>Denken Sie nur, was an bisheriger Literatur krepieren wird! wie viele Romane und Dramen wird man noch ansehen mögen? wie viele Autoren den Verlegern und dem Publico lieb gewesen sind, weil sie dem Jahrzehnt, ja dem Jahr und dem Monat entsprachen und schmeichelten! Was weiterlebt, muß eine schöne Portion ewigen Gehaltes in sich haben. Und was Dauerndes neu geschaffen werden soll, das kann nur entstehen durch eine ganz übermächtige Anstrengung der wahren Poesie.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
-	
-	<div id="post" name="oldPost">
-		<div id="header"><a name=""><h5>Ute Zweig schrieb am 12. Oktober 2010 um 15:02 Uhr:</h5></a></div>
-		<div id="content">
-			<p>Thanks for the document. I&#39;ve opened <a href="http://www.google.de" rel="nofollow">http://code.google.com/p/issues/detail?id=1063</a> for tracking your issue.</p>
-		</div>
-		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
-	</div>
-	<h6><a name="neuePosts">Neue Beiträge:</a></h6>
+	<h4><a title="neue Beiträge" name="neuePosts">Neue Beiträge:</a></h4>
 	<div id="post" name="newPost">
-		<div id="header"><a name=""><h5><!-- a name="neuePosts"></a -->Ute Zweig schrieb gestern um 15:21 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3><!-- a name="neuePosts"></a -->Ute Zweig schrieb gestern um 15:21 Uhr:</h3></a></div>
 		<div id="content">
-			<p>FYI: The next prerelease build should correctly render your document.</p>
-		</div>
+<p>Mir als Geschichtsdozenten ist ein ganz merkwürdiges Phänomen klar geworden: die plötzliche Entwertung aller bloßen ›Ereignisse‹ der Vergangenheit. Meine Kurse heben fortan nur noch das Kulturgeschichtliche hervor und behalten von dem äußeren Gerüste nur das Unentbehrlichste bei. Denken Sie nur all die krepierten Bataillen in den Heften so vieler V.V.E.E. [Fußnote]Viri eruditissimi. auf deutschen Kathedern! Ich meinesteils habe glücklicherweise niemals große Geschäfte in dieser Richtung gemacht. Aber ich sehe, ich rede wieder einmal von mir, während die Zeiten all unseres persönlichen Tuns und Hoffens spotten könnten.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
 	<div id="post" name="newPost">
-		<div id="header"><a name=""><h5>Kristian Gärtner schrieb heute um 17:02 Uhr:</h5></a></div>
+		<div id="header"><a name=""><h3>Kristian Gärtner schrieb heute um 17:02 Uhr:</h3></a></div>
 		<div id="content">
-			<p>Great, thanks!</p>
-		</div>
+<p>Stündlich dürfen wir ja einer Schlacht in der Gegend zwischen Besançon und Belfort entgegensehen, stündlich einer großen Entscheidung, wer weiß, noch sonstwo in Frankreich. Die Stellung der Schweiz, so festen Willen der wirklichen Neutralität wir auch haben, bleibt nicht, wie sie war, und wenn auch heute ein Friede geschlossen würde. Weiteres Gott anheimstellend.</p>		</div>
 		<div id="footer"><a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
 	</div>
 	
-	<hr />
+	<!-- div id="separator"></div -->
 
 	<!-- div id="post">
-		<div id="header"><a name=""><h5><a name="neuePosts">NEU:</a> ...</h5></a></div>
+		<div id="header"><a name=""><h3><a name="neuePosts">NEU:</a> ...</h3></a></div>
 		<div id="content">
 			<p>...</p>
 		</div>
