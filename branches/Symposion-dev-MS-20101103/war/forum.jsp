@@ -24,6 +24,7 @@
 			<%@ include file="_menue_search.jsp" %>
 			<%@ include file="_menue_moderatoren.jsp" %>
 			<%@ include file="_menue_admin.jsp" %>
+			<%@ include file="_menue_accesskey.jsp" %>
 		</div>
 	
 		<div id="Inhalt">
