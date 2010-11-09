@@ -30,16 +30,26 @@ function toggleOne() {
 */
 
 function toggle() {
-	var newPostElements;
+	var oldPostElements;
+	var showAllElements;
+	var showNewElements
 	if (document.getElementsByName) {
-		newPostElements = document.getElementsByName('oldPost');
+		oldPostElements = document.getElementsByName('oldPost');
+		showAllElement = document.getElementById('showAll');
+		showNewElement = document.getElementById('showNew');
 		
-		for (i=0; i<newPostElements.length; i++) {
-			newPost = newPostElements[i];
-			if (newPost.style.display=='none') {
-				newPost.style.display='block';
+		for (i=0; i<oldPostElements.length; i++) {
+			oldPost = oldPostElements[i];
+			if (oldPost.style.display=='none') {
+				oldPost.style.display='block';
+				
+				showAllElement.style.display='none';
+				showNewElement.style.display='block';
 			} else {
-				newPost.style.display='none';
+				oldPost.style.display='none';
+				
+				showAllElement.style.display='block';
+				showNewElement.style.display='none';
 			}
 			
 		}

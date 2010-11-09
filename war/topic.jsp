@@ -32,12 +32,13 @@
 
 <div id="Inhalt">
 
-	<a class="inpagenav" accesskey="0" href="#neuePosts">Zu den neuen Beiträgen</a>
+	<a class="inpagenav" accesskey="3" href="#neuePosts">Zu den neuen Beiträgen</a>
 
-	<h2><span accesskey="T" class="inpagenav">Thema:</span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</h2>
+	<h2><span class="inpagenav"><a name="content">Thema:</a></span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</h2>
 
-			<!-- span class="inpagenav">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Toggle</a></span-->
-			<!-- div id="separator"></div -->
+			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
+			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>
+			<div id="separator"></div>
 
 	<div id="post" name="oldPost" class="test">
 		<div id="header"><a name=""><h3>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h3></a></div>
