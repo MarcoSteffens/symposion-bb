@@ -117,7 +117,10 @@
   .inpagenav {
     font-size: 0.8em;
   }
-  
+  .bla {
+    color: gray;
+    /*display: block;*/
+  }
   
   div#search input#search {
   	margin: 0 0 0 0;
