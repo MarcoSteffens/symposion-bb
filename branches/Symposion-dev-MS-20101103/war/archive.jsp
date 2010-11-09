@@ -10,9 +10,14 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- link rel="icon" type="image/gif" href="animated_favicon1.gif" -->
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+	<script type="text/javascript" src="../scripts/javascript.js" charset="ISO-8859-1"></script>
+	<style type="text/css">
+		<!--
+		-->
+	</style>
   </head>
   <body>
-
+   
 	<div id="Seite">
 	
 		<div id="pagehead">
@@ -24,76 +29,77 @@
 			<%@ include file="_menue_search.jsp" %>
 			<%@ include file="_menue_moderatoren.jsp" %>
 			<%@ include file="_menue_admin.jsp" %>
+			<%@ include file="_menue_accesskey.jsp" %>
 		</div>
 	
 		<div id="Inhalt">
-			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
+			<!-- a class="navigation" href="#neuePosts">Zu den neuen BeitrÃ¤gen</a -->
 		
-			<h2>Ein Archiv</h2>
+			<h2><a name="content">Ein Archiv</a></h2>
 		
-			<input type="checkbox" name="Name" value=""> Nur neue und erweiterte Themen anzeigen
+			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
+			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>
+			<div id="separator"></div>
 		
 			<div id="topics">
-				<p><!-- img align="left" id="link1184321" src="/img/pin.jpg" alt="Sticky" border="0" height="16" width="16" / -->
-					<a href="../topic.jsp">Problem rendering tikz-qtree output rendering tikz-qtree output rendering tikz-qtree output rendering</a>
-					<em>Kristian Gärtner</em><span>(6 Kommentare)</span></p>
-				<p><a href="/topic.jsp?comments=1" title="">typo in the news page title</a>
+				<p name="newPost"><!-- img align="left" id="link1184321" src="/img/pin.jpg" alt="Sticky" border="0" height="16" width="16" / -->
+					<a href="../topic.jsp">In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</a>
+					<em>Hans Sachs</em><span>(6 Kommentare)</span></p>
+				<p name="newPost"><a href="/topic.jsp?comments=1" title="">Fridrich Alberigo genannt.</a>
 					<em>Jessika Lowe</em><span>(0)</span></p>
-				<p><a href="/topic.jsp?comments=2" title="">Full screen without scrolling bar</a>
+				<p name="newPost"><a href="/topic.jsp?comments=2" title="">Der in herzlich Liebe brennet gen einem edlen Weib, genennet Giovanna.</a>
 					<em>Kristian Gottschalk</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=3" title="">Show/view forms data</a>
+				<p name="newPost"><a href="/topic.jsp?comments=3" title="">An Gut sehr reich, an Ehren stet und gar lobleich.</a>
 					<em>Angelika Kortig</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=4" title="">Translations for the web page</a>
+				<p name="newPost"><a href="/topic.jsp?comments=4" title="">Sie verachtet all sein Lieb, an ihrem Herren treulich blieb.</a>
 					<em>Daniel Molina</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=5" title="">New (sort of redundant) button for viewing</a>
+				<p name="newPost"><a href="/topic.jsp?comments=5" title="">Reichlich Friederich ausgab, bis er verschwendet gro&szlig;e Hab.</a>
 					<em>Claus Petersen</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=6" title="">resume after crash</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=6" title="">Er verpf&auml;ndet all sein Gut, zog auf ein Sitz und in Armut.</a>
 					<em>Petra Wagner</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=7" title="">A few UI feature requests</a>
+				<p name="newPost"><a href="/topic.jsp?comments=7" title="">Nichts dann ein edlen Falken h&auml;tt, mit dem er t&auml;glich jagen t&auml;t.</a>
 					<em>Uta Förster</em><span>(3)</span></p>
-				<p><a href="/topic.jsp?comments=8" title="">Request: menu entry for the old full-screen mode</a>
+				<p name="newPost"><a href="/topic.jsp?comments=8" title="">Ihr Herr, der starb und sich begab.</a>
 					<em>Christine Kappel</em><span>(0)</span></p>
-				<p><a href="/topic.jsp?comments=9" title="">Feature Request: Multiple view of a single document</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=9" title="">Der Frauen Sohn, ein junger Knab ward schwerlich krank.</a>
 					<em>Kathrin Neumann</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=10" title="">OneNote linked notes</a>
+				<p name="newPost"><a href="/topic.jsp?comments=10" title="">Bis in den tod</a>
 					<em>Tobias Bergmann</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=11" title="">Feature Request: PDF playlist/queue</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=11" title="">Sprach: &quot;Mutter, ich bitt dich durch Gott, hilf, da&szlig; Friedrichs Falk mir werd, so nimmt ein End all mein Beschwerd.&quot;.</a>
 					<em>Martin Hüber</em><span>(2)</span></p>
-				<p><a href="/topic.jsp?comments=12" title="">feature enquiry/request</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=12" title="">Die Mutter tr&ouml;st&#39; ihn, den zu bringen.</a>
 					<em>Leonie Dietrich</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=13" title="">.Net Component</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=13" title="">Kam zu Friedrich in den Dingen.</a>
 					<em>Stephanie Scholz</em><span>(2)</span></p>
-				<p><a href="/topic.jsp?comments=14" title="">Print rotated pages</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=14" title="">Zum Fr&uuml;hmal t&auml;t sich laden, froh war Friedrich ihrer Gnaden.</a>
 					<em>Maria Hartmann</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=15" title="">Feature Request: Shortcuts for view menu</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=15" title="">H&auml;tt doch weder Fleisch noch Fisch damit er speiset seinen Tisch.</a>
 					<em>Sabine Meier</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=16" title="">Gap between pages in facing mode</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=16" title="">Armut, Ungl&uuml;ck t&auml;t ihn walken.</a>
 					<em>Juliane Hoch</em><span>(0)</span></p>
-				<p><a href="/topic.jsp?comments=17" title="">Improvement for synctex's forward search</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=17" title="">Er w&uuml;rgt sein lieben Falken.</a>
 					<em>Petra Wagner</em><span>(5)</span></p>
-				<p><a href="/topic.jsp?comments=18" title="">PDF with passwords is not opening</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=18" title="">Briet den und zu Tische trug, zerlegt ihn h&ouml;flich, klug.</a>
 					<em>Ursula Lang</em><span>(2)</span></p>
-				<p><a href="/topic.jsp?comments=19" title="">More print options?</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=19" title="">Nach dem sprach die Frau mit Sitten.</a>
 					<em>Philipp Schwarz</em><span>(1)</span></p>
-				<p><a href="/topic.jsp?comments=20" title="">2215 prerelease</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=20" title="">&quot;Durch euer Lieb will ich euch bitten um euren edlen Falken gut.</a>
 					<em>Mandy Bürger</em><span>(3)</span></p>
-				<p><a href="/topic.jsp?comments=21" title="">Version 1.1 using "-restrict" on start up</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=21" title="">Nach dem mein Sohn sich sehnen tut.</a>
 					<em>Lucas Schmid</em><span>(3)</span></p>
-				<p><a href="/topic.jsp?comments=22" title="">Refresh file without jittering</a>
+				<p name="oldPost"><a href="/topic.jsp?comments=22" title="">Todkrank, wo ihr ihm den tut geben, rettet ihr sein junges Leben.</a>
 					<em>Luca Jung</em><span>(13)</span></p>
-				<p><a href="/topic.jsp?comments=23" title="">Image "ghosting"</a>
-					<em>Jürgen Maur</em><span>(6)</span></p>
-				<p><a href="/topic.jsp?comments=24" title="">When will be available official 64-bit version?</a>
-					<em>Leon Diederich</em><span>(2)</span></p>
 			</div>
 			
-			<!-- div id="buttons"><input type="button" name="Name" value="Neues Thema erstellen" onclick="Aktion"></div -->
-			<div id="buttons"><!-- a href="/newTopic.jsp">Neues Thema hinzufügen</a -->
+			<div id="separator"></div>
+			
+			<div id="buttons">
 				<form action="/newTopic.jsp" method="link">
-					<input type="submit" value="Neues Thema hinzufügen" disabled="disabled" />
+					<input alt="test" type="submit" value="Neues Thema hinzufügen" disabled="disabled" /><br />
+					Hinweis: Dieser Bereich ist bereits archiviert, neue Themen können nicht angelegt werden.
 				</form>
-
 			</div>
+			
 		</div>
 	
 	<%@ include file="_footnote.jsp" %>

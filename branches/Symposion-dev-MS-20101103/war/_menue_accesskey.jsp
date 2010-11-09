@@ -1,22 +1,12 @@
-	<div id="moderator">
-		<h2><a name="neuePosts">Accesskeys</a></h2>
-	
-		<ul id="accesskeys">
-			<li>S - Navigation überspringen</li>
-			<li>1 - Startseite</li>
-			<li>2 - Was ist neu</li>
-			<li>3 - Inhalt (Sitemap)</li>
-			<li>4 - Suche</li>
-			<li>5 - Häufig gestellte Fragen (FAQ)</li>
-			<li>6 - Hilfe</li>
-			<li>7 - Beschwerden</li>
-			<li>8 - Bestimmungen und Bedingungen (AGB)</li>
-			<li>9 - Feedback-Formular</li>
-			<li>0 - Accesskey-Übersicht</li>
+	<div id="accesskeys">
+		<h2><a name="accesskeys">Accesskeys</a></h2>
+		1 - <a accesskey="1" href="#content">Navigation überspringen</a><br />
+		2 - <a accesskey="2" href="#navigation">Navigationsmenü</a><br />
+		3 - Zu den neuen Kommentaren<br />
+		0 - <a accesskey="0" href="#accesskeys">Übersicht Accesskeys</a><br />
 <!-- 
-<a accesskey="0" href="#neuePosts">Zu den neuen Beiträgen</a>
-<a name="neuePosts">Neue Beiträge:</a>
+Link: <a accesskey="0" href="#neuePosts">Zu den neuen Beiträgen</a>
+Ziel: <h4><a name="neuePosts">Neue Beiträge:</a></h4>
  -->			
-		</ul>
 	</div>
 	

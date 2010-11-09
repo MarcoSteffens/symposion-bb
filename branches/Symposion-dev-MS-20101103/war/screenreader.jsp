@@ -29,9 +29,11 @@
 		<div id="Inhalt">
 			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
 		
-			<h2>Guidelines</h2>
+			<h2>Hinweise für Benutzer von Screenreadern</h2>
 			
 			<p>bla</p>
+			
+			<p><a href="../">zurück zur Startseite</a></p>
 		</div>
 	
 	<%@ include file="_footnote.jsp" %>
