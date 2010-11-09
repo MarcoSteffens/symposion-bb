@@ -236,6 +236,16 @@ div#content {
 		color: gray;		
 	}
 
+	div#error p {
+		margin: 0; padding: 0;
+		margin-bottom:0.5em;
+	}
+	
+  div#error pre {
+    heigth: 20em;
+    border: 1px dashed silver;
+  }
+	
   p#Fusszeile {
     clear: both;
     font-size: 0.9em;

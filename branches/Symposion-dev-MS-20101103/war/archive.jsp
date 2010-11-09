@@ -96,7 +96,7 @@
 			<div id="buttons">
 				<form action="/newTopic.jsp" method="link">
 					<input alt="test" type="submit" value="Neues Thema hinzufügen" disabled="disabled" /><br />
-					Hinweis: Dieser Bereich ist bereits archiviert, neue Themen können nicht angelegt werden.
+					Hinweis: Dieser Bereich ist archiviert, neue Themen können nicht angelegt werden.
 				</form>
 			</div>
 			
