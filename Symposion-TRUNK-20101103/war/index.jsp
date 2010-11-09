@@ -9,11 +9,11 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Hello App Engine</title>
+    <title>Symposion</title>
   </head>
 
   <body>
-    <h1>Hello App Engine!</h1>
+    <h1>&Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu;</h1>
 	
     <table>
       <tr>
