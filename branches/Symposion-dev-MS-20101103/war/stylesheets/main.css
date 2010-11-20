@@ -202,15 +202,27 @@ div#content {
 		margin: 0.2em 0 0.3em 0em; padding: 0em;
 	}
 	div#footer {
+	  text-align: right;
 		/*background-color: Gray;*/
   		border-top: 0px solid silver;
   		border-bottom: 1px solid silver;
   		height: 1em;
 		margin: 0; padding: 0.2em;
   	}
-
-
-	div#topics {
+	span#spacer {
+	  padding: 0 1em 0 0;
+	}
+  textarea {
+    width: 100%;
+  }
+  table {
+    vertical-align: top;
+    width: 90%;
+  }
+  tr {
+    vertical-align: top;
+  }
+div#topics {
 		font-size:1em;	
 		line-height: 1em;	
 	}

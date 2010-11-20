@@ -35,7 +35,7 @@
 	
 		<div id="Inhalt">
 		
-		<h2>Neues Thema erstellen</h2>
+		<h2><a name="pagecontent_headline">Neues Thema erstellen</a></h2>
 		
 		<table border="0">
 			<tr>
