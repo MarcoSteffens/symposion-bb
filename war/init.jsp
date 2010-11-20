@@ -30,7 +30,7 @@
 	
 		<div id="Inhalt">
 		
-			<h2><a name="content">Neues Forum anlegen</a></h2>
+			<h2><a name="pagecontent_headline">Neues Forum anlegen</a></h2>
 		
 		    <form action="/init" method="post">
 				<table border="0">

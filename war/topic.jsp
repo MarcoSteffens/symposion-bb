@@ -28,13 +28,14 @@
 			<%@ include file="_menue_search.jsp" %>
 			<%@ include file="_menue_moderatoren.jsp" %>
 			<%@ include file="_menue_admin.jsp" %>
+			<%@ include file="_menue_accesskey.jsp" %>
 		</div>
 
 <div id="Inhalt">
 
 	<a class="inpagenav" accesskey="3" href="#neuePosts">Zu den neuen Beiträgen</a>
 
-	<h2><span class="bla"><a name="content">Thema:</a></span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</h2>
+	<h2><a name="pagecontent_headline"><span class="bla">Thema:</span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</a></h2>
 
 			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
 			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>
@@ -43,9 +44,14 @@
 	<div id="post" name="oldPost" class="test">
 		<div id="header"><a name=""><h3>Kristian Gärtner schrieb am 12. Oktober 2010 um 12:48 Uhr:</h3></a></div>
 		<div id="content">
-<p>Ich überlese noch einmal Ihren letzten werten Brief vom 30. September – und komme nun nur mit wenigen Zeilen Antwort, um Ihnen noch vor Jahresschluß herzlich die Hand zu drücken.</p>
-<p>Wie ist das alles seit drei Monaten geworden! wer hätte damals geglaubt, daß der Kampf tief in einen gräßlichen Winter hinein dauern und noch am letzten Tage des Jahres ohne Aussicht auf nahe Beendigung sein würde.</p>		</div>
-		<div id="footer">&nbsp;<a href="/topic?id=1183321#1184321" title="Permalink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></div>
+			<p>Ich überlese noch einmal Ihren letzten werten Brief vom 30. September – und komme nun nur mit wenigen Zeilen Antwort, um Ihnen noch vor Jahresschluß herzlich die Hand zu drücken.</p>
+			<p>Wie ist das alles seit drei Monaten geworden! wer hätte damals geglaubt, daß der Kampf tief in einen gräßlichen Winter hinein dauern und noch am letzten Tage des Jahres ohne Aussicht auf nahe Beendigung sein würde.</p>
+		</div>
+		<div id="footer">
+			<span><a href="/topic?id=1183321#1184321" title="Kommentar löschen"><img id="link1184321" src="/img/delete.jpg" alt="Kommentar löschen" border="0" height="16" width="16"></a></span>
+			<span id="spacer"></span>
+			<span><a href="/topic?id=1183321#1184321" title="Permalink"><img id="link1184321" src="/img/icon-anker.gif" alt="Permalink" border="0" height="16" width="16"></a></span>
+		</div>
 	</div>
 	
 	<div id="post" name="oldPost">

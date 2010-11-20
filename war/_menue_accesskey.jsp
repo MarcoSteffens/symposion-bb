@@ -1,6 +1,6 @@
 	<div id="accesskeys">
 		<h2><a name="accesskeys">Accesskeys</a></h2>
-		1 - <a accesskey="1" href="#content">Navigation überspringen</a><br />
+		1 - <a accesskey="1" href="#pagecontent_headline">Navigation überspringen</a><br />
 		2 - <a accesskey="2" href="#navigation">Navigationsmenü</a><br />
 		3 - Zu den neuen Kommentaren<br />
 		0 - <a accesskey="0" href="#accesskeys">Übersicht Accesskeys</a><br />

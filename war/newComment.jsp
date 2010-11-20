@@ -35,7 +35,7 @@
 	
 		<div id="Inhalt">
 		
-		<h2>Kommentar schreiben</h2>
+		<h2><a name="pagecontent_headline">Kommentar schreiben</a></h2>
 		
 		<table border="0">
 			<tr>
@@ -43,8 +43,8 @@
 				<td>In Centonovella ich las, zu Florenz vor Zeiten saß ein jung Edelmann, weit erkannt.</td>
 			</tr>
 			<tr>
-				<td>Inhalt:</td>
-				<td><textarea cols="30" rows="8" name="inhalt"></textarea></td>
+				<td>Kommentar:</td>
+				<td><textarea rows="8" name="inhalt"></textarea></td>
 			</tr>
 			<tr>
 				<td>Autor:</td>

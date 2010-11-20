@@ -7,7 +7,7 @@
 %>
 		<h1>Name des Forums</h1><!-- &Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu; -->
 <div id="accessibility">
-<a href="/screenreader.jsp">Hinweis für Nutzer von Screenreadern</a> <a href=""></a>
+<a href="/screenreader.jsp">Hinweis für Nutzer von Screenreadern</a>
 </div>
 <%
     if (user != null) {

@@ -35,7 +35,7 @@
 		<div id="Inhalt">
 			<!-- a class="navigation" href="#neuePosts">Zu den neuen BeitrÃ¤gen</a -->
 		
-			<h2><a name="content">Ein Archiv</a></h2>
+			<h2><a name="pagecontent_headline">Ein Archiv</a></h2>
 		
 			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
 			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>

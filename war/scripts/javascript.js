@@ -31,12 +31,13 @@ function toggleOne() {
 
 function toggle() {
 	var oldPostElements;
-	var showAllElements;
-	var showNewElements
 	if (document.getElementsByName) {
 		oldPostElements = document.getElementsByName('oldPost');
 		showAllElement = document.getElementById('showAll');
 		showNewElement = document.getElementById('showNew');
+		showNewLink = document.getElementById('showNewLink');
+		showAllLink = document.getElementById('showAllLink');
+		target = document.getElementById('target');
 		
 		for (i=0; i<oldPostElements.length; i++) {
 			oldPost = oldPostElements[i];
@@ -45,11 +46,25 @@ function toggle() {
 				
 				showAllElement.style.display='none';
 				showNewElement.style.display='block';
+				
+				/*showNewLink.focus;*/
+				setTimeout(function(){
+					/*target.focus();*/
+					showNewLink.focus();
+					}, 1);
+
 			} else {
 				oldPost.style.display='none';
 				
 				showAllElement.style.display='block';
 				showNewElement.style.display='none';
+				
+				/*showAllLink.focus;*/
+				setTimeout(function(){
+					/*target.focus();*/
+					showAllLink.focus();
+					}, 1);
+
 			}
 			
 		}

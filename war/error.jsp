@@ -31,7 +31,7 @@
 		<div id="Inhalt">
 			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
 		
-			<h2><a name="content">Ups...</a></h2>
+			<h2><a name="pagecontent_headline">Ups...</a></h2>
 		
 			<div id="separator"></div>
 		
