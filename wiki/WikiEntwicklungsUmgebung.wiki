@@ -5,3 +5,5 @@ Bla bla
 test
 
 HIer gehts zum WikiMarkup
+
+Und hier gibts noch mehr Markup: http://code.google.com/p/support/wiki/WikiSyntax
