@@ -4,22 +4,13 @@ Umlaute sind ein Problem, aber wenn die Wiki-Seite UTF-8-Codiert ist, geht es. (
 
 ==Überschriften==
 
-=Überschrift Ebene 1=
-==Überschrift Ebene 2==
-===Überschrift Ebene 3===
-====Überschrift Ebene 4====
-=====Überschrift Ebene 5=====
-======Überschrift Ebene 6======
-=======Überschrift Ebene 7=======
-========Überschrift Ebene 8========
-=========Überschrift Ebene 9=========
-
-
+Es gibt sechs Überschriftenebenen im Wiki, wirklich nutzbar sind aber nur die ersten drei bis vier. Die Syntax ist:
 
 {{{
 =Überschrift Ebene 1=
 ==Überschrift Ebene 2==
 ===Überschrift Ebene 3===
+usw.
 }}}
 
 ==Links==
@@ -31,7 +22,11 @@ WikiWordLink
 [Seitenname beschreibender Text]
 }}}
 || *Syntax* || *Ergebnis* || *Beschreibung* ||
-|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Seite im gleichen Wiki. Wenn die Seite noch nicht existiert, wird ein <u>?</u> als Link angezeigt, über den die Seite dann angelegt werden kann.||
+|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Seite im gleichen Wiki. Wenn die Seite noch nicht existiert, wird ein <u>?</u> als Link angezeigt, über den die Seite dann angelegt werden kann. Funktioniert nur mit der Wiki-typischen Schreibweise, also ein zusammengesetztes Wort mit mehreren Großbuchstaben.||
+|| `[Anderewikiseite]` || [Anderewikiseite] || Link auf eine andere Seite im gleichen Wiki, wenn die *nicht* in der Wiki-typischen Schreibweise benannt wurde. ||
+|| `[Anderewikiseite mit Beschreibung]` || [Anderewikiseite mit Beschreibung] || Link auf eine andere Seite im gleichen Wiki, wobei der Link auf die Seite auf den Text nach dem ersten Leerzeichen lautet. ||
+
+Eine automatische Verlinkung verhindert ein vorangestelltes Ausrufezeichen. So etwa: !WikiWordLink
 
 Extern:
 {{{
