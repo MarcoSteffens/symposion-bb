@@ -1,4 +1,4 @@
-=Wiki Markup und Syntax=
+﻿=Wiki Markup und Syntax=
 
 Umlaute vermeiden...
 
@@ -35,6 +35,7 @@ escape: `*`
 }}}
 
 escape: `*`
+*und was wird escaped?*
 
 ===Code-Block:===
 {{{
@@ -44,7 +45,7 @@ verbatim code block
 }}}
 
 
-==Listen/Aufz�hlungen==
+==Listen/Aufzählungen==
 
 {{{
 Indent lists 2 spaces:
