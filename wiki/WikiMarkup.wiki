@@ -1,13 +1,13 @@
 ﻿=Wiki Markup und Syntax=
 
-Umlaute vermeiden...
+Umlaute sind ein Problem, aber wenn die Wiki-Seite UTF-8-Codiert ist, geht es. (Macht der Editor, in diesem Fall Notepad++.)
 
-==Ueberschriften==
+==Überschriften==
 
 {{{
-=Ueberschrift Ebene 1=
-==Ueberschrift Ebene 2==
-===Ueberschrift Ebene 3===
+=Überschrift Ebene 1=
+==Überschrift Ebene 2==
+===Überschrift Ebene 3===
 }}}
 
 ==Links==
@@ -18,8 +18,8 @@ WikiWordLink
 [Seitenname]
 [Seitenname beschreibender Text]
 }}}
-|| *Syntax* || Ergebnis || Beschreibung ||
-|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Wiki-Seite. ||
+|| *Syntax* || *Ergebnis* || *Beschreibung* ||
+|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Seite im gleichen Wiki. Wenn die Seite noch nicht existiert, wird ein  _?_ als Link angezeigt, mit dem die Seite dann angelegt werden kann.||
 
 Extern:
 {{{
