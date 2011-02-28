@@ -19,7 +19,7 @@ WikiWordLink
 [Seitenname beschreibender Text]
 }}}
 || *Syntax* || *Ergebnis* || *Beschreibung* ||
-|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Seite im gleichen Wiki. Wenn die Seite noch nicht existiert, wird ein  _?_ als Link angezeigt, mit dem die Seite dann angelegt werden kann.||
+|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Seite im gleichen Wiki. Wenn die Seite noch nicht existiert, wird ein <u>?<\u> als Link angezeigt, über den die Seite dann angelegt werden kann.||
 
 Extern:
 {{{
@@ -33,9 +33,6 @@ http://domain/page
 `inline code`
 escape: `*`
 }}}
-
-escape: `*`
-*und was wird escaped?*
 
 ===Code-Block:===
 {{{
