@@ -1,11 +1,13 @@
 =Wiki Markup und Syntax=
 
-==Überschriften==
+Umlaute vermeiden...
+
+==Ueberschriften==
 
 {{{
-=Überschrift Ebene 1=
-==Überschrift Ebene 2==
-===Überschrift Ebene 3===
+=Ueberschrift Ebene 1=
+==Ueberschrift Ebene 2==
+===Ueberschrift Ebene 3===
 }}}
 
 ==Links==
@@ -17,7 +19,7 @@ WikiWordLink
 [Seitenname beschreibender Text]
 }}}
 || *Syntax* || Ergebnis || Beschreibung ||
-|| 'WikiWordLink' || WikiWordLink  || Link auf eine andere Wiki-Seite. ||
+|| `WikiWordLink` || WikiWordLink  || Link auf eine andere Wiki-Seite. ||
 
 Extern:
 {{{
@@ -32,7 +34,9 @@ http://domain/page
 escape: `*`
 }}}
 
-Code-Block:
+escape: `*`
+
+===Code-Block:===
 {{{
 {{{
 verbatim code block
