@@ -1,6 +1,6 @@
 ï»¿Hier gehts los.
 
-==Für Benutzer==
+==FÃ¼r Benutzer==
 
 [Installation]
 
@@ -8,11 +8,11 @@
 
 [Funktionen]
 
-==Für Entwickler==
+==FÃ¼r Entwickler==
 
 [Konzeption]
 
-==Für mich==
+==FÃ¼r mich==
 
 Hier geht es zur Seite mit der [WikiEntwicklungsUmgebung].
 
