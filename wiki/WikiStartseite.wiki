@@ -1,11 +1,19 @@
 Hier gehts los.
 
+==Für Benutzer==
+
 [Installation]
 
 [Konfiguration]
 
-[Funktionenen]
+[Funktionen]
 
-----  
+==Für Entwickler==
+
+[Konzeption]
+
+==Für mich==
+
 Hier geht es zur Seite mit der [WikiEntwicklungsUmgebung].
+
 Und hier direkt zur Seite mit der Beschreibung der [WikiMarkup Wiki-Syntax].
