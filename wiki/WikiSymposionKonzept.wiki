@@ -1,1 +1,103 @@
-﻿
+﻿==Konzepte==
+
+===Installation===
+
+  * Entweder nur ein Forum oder als Foren-Host.
+  * Per Konfiguration: Für alle (anonym) les- und schreibbar ODER für alle lesbar aber nur nach Anmeldung schreibbar ODER nur nach Anmeldung les- und schreibbar
+
+===Anmeldung===
+
+  * Anmeldung per Google-Konto
+  * Eigene Benutzerverwaltung
+
+Erstmal Anmeldung per Google-Konto, da das Forum dabei seinen eigenen Besitzer erkennt. Anmeldung über eigene Benutzerverwaltung so gestalten, dass der Besitzer des Forums automatisch beim Installieren als (nicht löschbarer und nicht sperrbarer) Administrator in die Benutzerverwaltung eingetragen wird? Oder so, dass das Forum ihn weiterhin automatisch erkennt?
+
+===Benutzbarkeit===
+
+*Lesen und schreiben für alle öffentlich*
+
+Name selber eingeben, im Cookie speichern (oder so, geht das überhaupt?)
+Möglichkeit für Admin zum anmelden muss gegeben sein, also mindestens über Google-Konto.
+
+*Lesen öffentlich, schreiben nach Anmeldung*
+
+  * Anmeldung über Google
+  * Eigene Benutzerverwaltung
+
+[WikiSymposionAnmeldung.jpg]
+
+===Rechte und Rollen===
+
+Rollen:
+  * Benutzer, unangemeldet
+  * Benutzer, angemeldet
+  * Moderator
+  * Administrator
+
+Rechte:
+  * Schreiben
+  * Lesen
+  * Moderieren
+  * Administrieren
+
+===Mehrsprachigkeit===
+
+Forumsweite Standardsprache, durch Administrator bei der Installation festgelegt.
+
+===Umgang mit SPAM===
+
+  * Geeignetes Verfahren, um die Anmeldung von Spambots zu vermeiden (Captchas scheiden aus... Vielleicht Rechenaufgaben oder Wortpaare finden? Ist dann gleich auch ein Intelligenztest... ;))
+  * Falls das Versagt: Funktion zum ECHTEN löschen von Benutzern inklusiv all seiner Beiträge
+
+===Organisation der Inhalte===
+
+  * Unterteilung in Boards
+  * Sichtbarkeit der Boards auf Gruppenebene einstellen können.
+
+----
+  
+==Funktionen==
+
+===Benutzer===
+
+Benutzer anlegen/registrieren
+Benutzer löschen
+Benutzer anmelden
+Benutzer abmelden
+
+====Profilbezogen====
+
+Emailbenachrichtigung aktivieren
+Emailbenachrichtigung deaktivieren (1-klick auch aus der Email heraus)
+
+====Forumsfunktionen====
+
+Beitrag anlegen
+Beitrag kommentieren
+Beitrag bearbeiten (nur eigenen)(?)
+Beitrag löschen (nur eigenen) (?)
+Beitrag bewerten
+
+===Administrator===
+
+====Benutzerbezogen====
+
+Benutzer löschen (durch Admin)
+  * mit allen Beiträgen (SPAMbot)
+  * nur Benutzer (=sperren? oder Benutzer löschen und Beiträge von dem einem Standardbenutzer "Gelöschter Benutzer" zuweisen?)
+||Benutzer sperren||Ein gesperrter Benutzer wird abgemeldet und bekommt bei einer erneuten Anmeldung im Zeitraum der Sperre eine Nachricht, die ihn über die Sperre, deren Grund und deren Dauer informiert. ("Hallo <Benutzername>, Du wurdest von einem Moderator wegen eines Verstoßes gegen die Forenregeln gesperrt. Deine Sperre läuft bis zum 01.01.1970. Anschließend steht Dir das Forum wieder wie bisher zur Verfügung."||
+Benutzerrolle ändern (Benutzer, Moderator, Administrator(?))
+
+====Konfigurationsbezogen====
+
+Standardsprache angeben
+Standardsprache ändern
+Forum anlegen
+Board anlegen
+Board umbenennen
+Board löschen
+Board archivieren(?)
+Boardsichtbarkeit für verschiedene Benutzergruppen festlegen.
+
+====Forumsbezogen====
+

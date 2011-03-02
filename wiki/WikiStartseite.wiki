@@ -6,7 +6,7 @@
 
 [Konfiguration]
 
-[Funktionen]
+[Bedienung]
 
 ==Für Entwickler==
 
