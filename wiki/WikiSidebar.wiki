@@ -1,1 +1,17 @@
-﻿Sidebar
+﻿===Für Benutzer===
+
+[Installation]
+
+[Konfiguration]
+
+[Funktionen]
+
+===Für Entwickler===
+
+[WikiSymposionKonzept Konzeption]
+
+===Für mich===
+
+[WikiEntwicklungsUmgebung]
+
+[WikiMarkup]

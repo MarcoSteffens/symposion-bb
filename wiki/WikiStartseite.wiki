@@ -10,7 +10,7 @@
 
 ==Für Entwickler==
 
-[Konzeption]
+[WikiSymposionKonzept Konzeption]
 
 ==Für mich==
 
