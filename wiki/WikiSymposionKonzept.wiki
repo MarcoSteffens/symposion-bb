@@ -24,7 +24,14 @@ Möglichkeit für Admin zum anmelden muss gegeben sein, also mindestens über Go
   * Anmeldung über Google
   * Eigene Benutzerverwaltung
 
-[http://code.google.com/p/symposion-bb/WikiSymposionAnmeldung.jpg]
+
+wiki:
+
+[http://code.google.com/p/symposion-bb/source/browse/wiki/WikiSymposionAnmeldung.jpg]
+
+svn:
+
+[http://code.google.com/p/symposion-bb/source/browse/WikiSymposionAnmeldung.jpg]
 
 ===Rechte und Rollen===
 
@@ -100,4 +107,3 @@ Board archivieren(?)
 Boardsichtbarkeit für verschiedene Benutzergruppen festlegen.
 
 ====Forumsbezogen====
-
