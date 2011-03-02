@@ -24,26 +24,8 @@ Möglichkeit für Admin zum anmelden muss gegeben sein, also mindestens über Go
   * Anmeldung über Google
   * Eigene Benutzerverwaltung
 
-neuer versuch:
-
-https://symposion-bb.googlecode.com/svn/wiki/WikiSymposionAnmeldung.jpg
-  
-oder:
-
 http://symposion-bb.googlecode.com/svn/wiki/WikiSymposionAnmeldung.jpg
   
-http:
-
-http://code.google.com/p/symposion-bb/wiki/WikiSymposionAnmeldung.jpg
-
-wiki:
-
-http://code.google.com/p/symposion-bb/source/browse/wiki/WikiSymposionAnmeldung.jpg
-
-svn:
-
-http://code.google.com/p/symposion-bb/source/browse/WikiSymposionAnmeldung.jpg
-
 ===Rechte und Rollen===
 
 Rollen:
