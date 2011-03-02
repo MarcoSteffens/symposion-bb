@@ -27,11 +27,11 @@ Möglichkeit für Admin zum anmelden muss gegeben sein, also mindestens über Go
 
 wiki:
 
-[http://code.google.com/p/symposion-bb/source/browse/wiki/WikiSymposionAnmeldung.jpg]
+http://code.google.com/p/symposion-bb/source/browse/wiki/WikiSymposionAnmeldung.jpg
 
 svn:
 
-[http://code.google.com/p/symposion-bb/source/browse/WikiSymposionAnmeldung.jpg]
+http://code.google.com/p/symposion-bb/source/browse/WikiSymposionAnmeldung.jpg
 
 ===Rechte und Rollen===
 
