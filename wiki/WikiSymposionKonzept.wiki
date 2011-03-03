@@ -2,7 +2,7 @@
 
 ===Installation===
 
-  * Entweder nur ein Forum oder als Foren-Host.
+  * Entweder nur ein Forum oder als Foren-Host. Ein einzelnes Forum erlaubt das Anlegen von Boards. Alle Boards sind zusammen unter einer Oberfläche erreichbar. Ein Foren-Host erlaubt das Anlegen mehrerer Foren, die nicht unter einer gemeinsamen Oberfläche erreichbar sind. (Oder doch? Oder nur für Admin/Besitzer?). Jedes einzelne Forum erlaubt das Anlegen von Boards. Ein einzelnes Forum wird so angelegt, dass es unter der Adresse !http://<forenname>.appspot.com erreichbar ist. Im Foren-Host lautet die Adresse !http://<hostname>.appspot.com/<forenname>. Diese Funktion erfordert einen Konfigurationssschritt beim installieren und die Angabe von Forenname (Pflicht) und Hostname (Nur für Forenhost) und dann ggf. mehrerer Forennamen.
   * Per Konfiguration: Für alle (anonym) les- und schreibbar ODER für alle lesbar aber nur nach Anmeldung schreibbar ODER nur nach Anmeldung les- und schreibbar
 
 ===Anmeldung===
@@ -54,6 +54,35 @@ Forumsweite Standardsprache, durch Administrator bei der Installation festgelegt
   * Unterteilung in Boards
   * Sichtbarkeit der Boards auf Gruppenebene einstellen können.
 
+===Moderation===
+
+  * Möglichkeit vorsehen, zeitweise oder immer Kommentare erst nach Sichtung durch Moderator freizugeben. (Generell, Benutzerbezogen, Benutzergruppenbezogen?)
+
+===Ignorieren===
+
+In der Thread-Form werden alle Ignorierte und alle dort angehängte Beiträge nicht angezeigt. Und in der Nicht-Thread-Form geht das wohl nicht. (Thread-Form: Kommentare beziehen sich auf einen bestimmten Kommentar bzw. ein konkretes Posting. Nicht-Thread-Form: Alle Kommentare beziehen sich immer auf das Ursprungs-Posting.)
+
+===Bewertung===
+
+  * Am Thread mehrere Handlungsmöglichkeiten wie "gefällt mir", "gefällt mir nicht" ... ach quatsch, es soll eher eine Bewertungsfunktion (++, +, -, --) geben.
+
+===Weitere Funktionen===
+
+  * Möglichkeit zum initiieren einer Abstimmung
+  * Bilder einfügen (barrierefreiheit gewährleistet?)
+
+===Layout===
+
+http://symposion-bb.googlecode.com/svn/wiki/WikiSymposionLayout.jpg
+
+*Typografie* beachten, es soll ein ausgesprochen gutaussehendes Forum werden!
+
+----
+
+==ToDos/Notes==
+
+  * Layout für ein Forum mit nur einem Board?
+
 ----
   
 ==Funktionen==
@@ -100,3 +129,9 @@ Board archivieren(?)
 Boardsichtbarkeit für verschiedene Benutzergruppen festlegen.
 
 ====Forumsbezogen====
+
+==Ablauf==
+
+Aufruf der Seite .../index.jsp:
+  * Als Admin: Neues Forum anlegen
+  * Für alle anderen: 404 ODER Begrüßungsseite mit LInk auf das Symposion-Forum ODER gleich Weiterleitung auf Forum?
