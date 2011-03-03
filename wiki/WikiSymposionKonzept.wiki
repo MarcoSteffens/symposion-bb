@@ -114,7 +114,7 @@ Beitrag bewerten
 Benutzer löschen (durch Admin)
   * mit allen Beiträgen (SPAMbot)
   * nur Benutzer (=sperren? oder Benutzer löschen und Beiträge von dem einem Standardbenutzer "Gelöschter Benutzer" zuweisen?)
-||Benutzer sperren||Ein gesperrter Benutzer wird abgemeldet und bekommt bei einer erneuten Anmeldung im Zeitraum der Sperre eine Nachricht, die ihn über die Sperre, deren Grund und deren Dauer informiert. ("Hallo <Benutzername>, Du wurdest von einem Moderator wegen eines Verstoßes gegen die Forenregeln gesperrt. Deine Sperre läuft bis zum 01.01.1970. Anschließend steht Dir das Forum wieder wie bisher zur Verfügung."||
+||Benutzer sperren||Ein gesperrter Benutzer wird abgemeldet und bekommt bei einer erneuten Anmeldung im Zeitraum der Sperre eine Nachricht, die ihn über die Sperre, deren Grund und deren Dauer informiert. ("Hallo `<Benutzername>`, Du wurdest von einem Moderator wegen eines Verstoßes gegen die Forenregeln gesperrt. Deine Sperre läuft bis zum 01.01.1970. Anschließend steht Dir das Forum wieder wie bisher zur Verfügung."||
 Benutzerrolle ändern (Benutzer, Moderator, Administrator(?))
 
 ====Konfigurationsbezogen====
