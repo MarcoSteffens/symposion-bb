@@ -2,7 +2,7 @@
 
 ===Installation===
 
-  * Entweder nur ein Forum oder als Foren-Host. Ein einzelnes Forum erlaubt das Anlegen von Boards. Alle Boards sind zusammen unter einer Oberfläche erreichbar. Ein Foren-Host erlaubt das Anlegen mehrerer Foren, die nicht unter einer gemeinsamen Oberfläche erreichbar sind. (Oder doch? Oder nur für Admin/Besitzer?). Jedes einzelne Forum erlaubt das Anlegen von Boards. Ein einzelnes Forum wird so angelegt, dass es unter der Adresse !http://<forenname>.appspot.com erreichbar ist. Im Foren-Host lautet die Adresse !http://<hostname>.appspot.com/<forenname>. Diese Funktion erfordert einen Konfigurationssschritt beim installieren und die Angabe von Forenname (Pflicht) und Hostname (Nur für Forenhost) und dann ggf. mehrerer Forennamen.
+  * Entweder nur ein Forum oder als Foren-Host. Ein einzelnes Forum erlaubt das Anlegen von Boards. Alle Boards sind zusammen unter einer Oberfläche erreichbar. Ein Foren-Host erlaubt das Anlegen mehrerer Foren, die nicht unter einer gemeinsamen Oberfläche erreichbar sind. (Oder doch? Oder nur für Admin/Besitzer?). Jedes einzelne Forum erlaubt das Anlegen von Boards. Ein einzelnes Forum wird so angelegt, dass es unter der Adresse `http://<forenname>.appspot.com` erreichbar ist. Im Foren-Host lautet die Adresse `http://<hostname>.appspot.com/<forenname>`. Diese Funktion erfordert einen Konfigurationssschritt beim installieren und die Angabe von Forenname (Pflicht) und Hostname (Nur für Forenhost) und dann ggf. mehrerer Forennamen.
   * Per Konfiguration: Für alle (anonym) les- und schreibbar ODER für alle lesbar aber nur nach Anmeldung schreibbar ODER nur nach Anmeldung les- und schreibbar
 
 ===Anmeldung===
