@@ -79,7 +79,7 @@ http://symposion-bb.googlecode.com/svn/wiki/WikiSymposionLayout.jpg
 
 ----
 
-==ToDos/Notes==
+==!ToDos/Notes==
 
   * Layout für ein Forum mit nur einem Board?
 
