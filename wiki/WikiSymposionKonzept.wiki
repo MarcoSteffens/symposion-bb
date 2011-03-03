@@ -66,10 +66,21 @@ In der Thread-Form werden alle Ignorierte und alle dort angehängte Beiträge ni
 
   * Am Thread mehrere Handlungsmöglichkeiten wie "gefällt mir", "gefällt mir nicht" ... ach quatsch, es soll eher eine Bewertungsfunktion (++, +, -, --) geben.
 
+===Archivierung===
+
+Beiträge, die sich seit 30 Tagen (oder einen einstellbaren Zeitraum, einschließlich "nie") nicht mehr geändert haben, werden archiviert und können dann nicht mehr kommentiert werden. Beim archivieren können evtl. auch als "gelöscht" markierte Beiträge wirklich gelöscht werden. (Wenn es sowas gibt.)
+
+Der Moderator kann ganze Boards archivieren.
+
+Wie wird das Archiv eingebunden bzw. angezeigt? Extra "Archiv"-Board, in das Beiträge verschoben werden? Oder ein Link am Ende des jeweiligen Boards, in dem ältere Artikel stehen? Oder gar nicht, einfach nur kein "Kommentieren"-Button mehr anbieten?
+
 ===Weitere Funktionen===
 
   * Möglichkeit zum initiieren einer Abstimmung
   * Bilder einfügen (barrierefreiheit gewährleistet?)
+  * Einladungssystem: Benutzer können sich nicht mehr selber anmelden, sondern müssen von einem Benutzer eingeladen werden. (Angabe von Benutzername und Email-Adresse durch den Einladenden). Aus diesem System könnte man dann auch ein Beziehungsgeflecht ableiten und für das Bewertungs-/Reputationssystem benutzen.
+  * Signaturen: Jeder Benutzer kann sich eine Signatur erstellen, die unter jedem seiner Beiträge angezeigt wird. (Mit Beitrag gespeichert, also alte Signaturen werden weiterhin angezeigt, oder wird auch bei älteren Beiträgen die aktuelle Signatur angezeigt? Die Frage alleine zeigt doch schon, dass Signaturen albern und unnütz sind.) Ob Signaturen angezeigt werden, kann jeder Benutzer in seinem Profil selber einstellen. Per Default werden Signaturen NICHT angezeigt.
+  * Thread-Eröffner kann Thread selber schließen. (Nach mindestens 2h oder so. Oder 48h? Oder nach einer für alle konfigurierbaren Zeit? Ist das überhaupt sinnvoll?)
 
 ===Layout===
 
@@ -111,6 +122,8 @@ Beitrag bewerten
 
 ====Benutzerbezogen====
 
+Benutzer verwarnen
+Benutzer sperren
 Benutzer löschen (durch Admin)
   * mit allen Beiträgen (SPAMbot)
   * nur Benutzer (=sperren? oder Benutzer löschen und Beiträge von dem einem Standardbenutzer "Gelöschter Benutzer" zuweisen?)
@@ -129,6 +142,12 @@ Board archivieren(?)
 Boardsichtbarkeit für verschiedene Benutzergruppen festlegen.
 
 ====Forumsbezogen====
+
+Beitrag löschen
+Beitrag editieren (?)
+Beitrag/Kommentar freigeben (bei entsprechender Konfiguration)
+Thread schließen
+Beitrag als "Wichtig" o.ä. markieren, so dass er immer zu Beginn eines Boards angezeigt wird.
 
 ==Ablauf==
 
