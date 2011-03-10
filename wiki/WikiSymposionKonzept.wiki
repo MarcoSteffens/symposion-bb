@@ -104,6 +104,9 @@ Benutzer anlegen/registrieren
 Benutzer löschen
 Benutzer anmelden
 Benutzer abmelden
+Email-Adresse ändern
+Passwort ändern
+Neues Passwort anfordern
 
 ====Profilbezogen====
 
@@ -117,6 +120,7 @@ Beitrag kommentieren
 Beitrag bearbeiten (nur eigenen)(?)
 Beitrag löschen (nur eigenen) (?)
 Beitrag bewerten
+Beitrag/Kommentar melden
 
 ===Administrator===
 
