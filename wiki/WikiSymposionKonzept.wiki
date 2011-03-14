@@ -122,6 +122,16 @@ Beitrag löschen (nur eigenen) (?)
 Beitrag bewerten
 Beitrag/Kommentar melden
 
+====Benutzerbezogen====
+
+Benutzer eine Nachricht schicken
+Nachricht ansehen
+Nachricht löschen
+
+===Moderator===
+
+Thread schließen
+
 ===Administrator===
 
 ====Benutzerbezogen====
@@ -158,3 +168,10 @@ Beitrag als "Wichtig" o.ä. markieren, so dass er immer zu Beginn eines Boards a
 Aufruf der Seite .../index.jsp:
   * Als Admin: Neues Forum anlegen
   * Für alle anderen: 404 ODER Begrüßungsseite mit LInk auf das Symposion-Forum ODER gleich Weiterleitung auf Forum?
+
+==Reihenfolge der Entwicklung==
+
+  # Installation: 
+    * Kann die Anwendung vor der Installation so konfiguriert werden, dass sie ein einzelnes Forum bzw. einen Forenhost installiert?
+    * Können die verschiedenen Anmeldeverfahren per Konfiguration voreingestellt werden?
+	
