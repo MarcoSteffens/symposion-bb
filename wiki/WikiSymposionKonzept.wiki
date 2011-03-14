@@ -1,6 +1,6 @@
 ﻿=Konzept=
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="6" />
 
 ==Konzepte==
 
