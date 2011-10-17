@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+ <context:component-scan base-package="com.appspot.symposionbb.controllers" />
+
+ <bean id="viewResolver"
+ class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+ p:prefix="/WEB-INF/views/" p:suffix=".jsp" >
+ <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+ </bean>
+
+</beans>
+
+<!-- 
+This sets several things up for us.  First, the context:component-scan
+ tag tell spring to search the "com.acrhodes.gaespringproject.controllers"
+  package for classes marked with the @Controller annotation so that we 
+  don't have to set them up explicitly in the xml.  The viewResolver bean
+   sets up our views to use JSTL and to return the jsp 
+   /WEB-INF/views/home/home.jsp when the view name "home/home" is given. 
+ -->
