@@ -35,7 +35,7 @@
 
 	<a class="inpagenav" accesskey="3" href="#neuePosts">Zu den neuen Beiträgen</a>
 
-	<h2><a name="pagecontent_headline"><span class="bla">Thema:</span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</a></h2>
+	<h2><a name="pagecontent_headline"><span class="hide">Thema:</span> In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</a></h2>
 
 			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
 			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>

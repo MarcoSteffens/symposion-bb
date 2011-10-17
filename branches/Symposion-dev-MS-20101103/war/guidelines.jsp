@@ -29,9 +29,11 @@
 		<div id="Inhalt">
 			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
 		
-			<h2>Guidelines</h2>
+			<h2>Hausordnung</h2>
 			
-			<p>bla</p>
+			<p>Bestimmt fällt mir hierzu später noch viel ein.</p>
+			
+			<p>Erstmal gilt jedenfalls: Hier wird moderiert.</p>
 		</div>
 	
 	<%@ include file="_footnote.jsp" %>

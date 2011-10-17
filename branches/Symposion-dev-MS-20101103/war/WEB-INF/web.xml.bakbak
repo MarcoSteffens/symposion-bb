@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/a/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
+	The dispatcher servlet handles all user requests
+	and passes them along to the correct controller.
+	The url mapping is to anything under the /a/ directory
+	because of a bug with GAE.  The development server
+	will not accept the url pattern of /* so in development
+	you must add a prefix.  
+	You can remove the /a before you deploy to a production GAE instance. 
+	 -->
+
+</web-app>

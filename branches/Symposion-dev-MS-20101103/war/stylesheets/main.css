@@ -117,10 +117,6 @@
   .inpagenav {
     font-size: 0.8em;
   }
-  .bla {
-    color: gray;
-    /*display: block;*/
-  }
   
   div#search input#search {
   	margin: 0 0 0 0;
@@ -209,7 +205,7 @@ div#content {
   		height: 1em;
 		margin: 0; padding: 0.2em;
   	}
-	span#spacer {
+  span#spacer {
 	  padding: 0 1em 0 0;
 	}
   textarea {
@@ -268,3 +264,10 @@ div#topics {
     text-align: center;
     background-color: #fed; border: 1px solid silver;
   }
+  
+  .hide {
+	position:absolute;
+	left:0;/*-9000px;*/
+	overflow:hidden;
+	display:inline;
+}
