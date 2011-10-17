@@ -7,6 +7,6 @@
 			<li><a href="../archive.jsp">Ein Archiv</a></li>
 			<li><a href="../archive.jsp">Noch ein Archiv</a></li>
 			<li><a href="../faq.jsp"><abbr title="Frequently Ask Questions">F.A.Q.</abbr></a></li>
-			<li><a href="../guidelines.jsp">Richtlinien</a> (vor dem Schreiben lesen!)</li>
+			<li><a href="../guidelines.jsp">Hausordnung</a></li>
 		</ul>
 	</div>

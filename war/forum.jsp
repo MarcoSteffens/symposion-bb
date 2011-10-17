@@ -2,7 +2,11 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="com.appspot.symposionbb.beans.MyJavaBean" %>
 
+<%
+	MyJavaBean jb = new MyJavaBean();
+%>
 <html>
   <head>
     <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
@@ -36,7 +40,8 @@
 		<div id="Inhalt">
 			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
 		
-			<h2><a id="target" name="pagecontent_headline">Ein Board</a></h2>
+			<h2><a id="target" name="pagecontent_headline">Ein Board<%       out.println( "(" + jb.getDateString() + ")" );
+ %></a></h2>
 			<!-- a href="/topic?id=1183321#1184321" title="Nur neue oder geänderte Beiträge anzeigen"><img id="link1184321" src="/img/delete.jpg" alt="Hier klicken, um nur neue oder geänderte Beiträge anzuzeigen." border="0" height="16" width="16"></a -->
 			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a id="showNewLink" href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
 			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a id="showAllLink" href="javascript:toggle();">Alle anzeigen.</a></div>
