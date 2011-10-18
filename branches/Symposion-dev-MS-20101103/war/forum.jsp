@@ -1,17 +1,147 @@
+<%@page import="com.appspot.symposionbb.model.Comment"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.TimeZone"%>
+<%@page import="java.util.GregorianCalendar"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%@ page import="com.appspot.symposionbb.beans.MyJavaBean" %>
+<%@ page import="javax.jdo.PersistenceManager" %>
+<%@ page import="com.appspot.symposionbb.PMF" %>
+<%@ page import="com.appspot.symposionbb.model.Forum" %>
+<%@ page import="com.appspot.symposionbb.model.Board" %>
+<%@ page import="com.appspot.symposionbb.model.Thread" %>
+<%@ page import="java.util.List" %>
+
+<%@ page import="com.appspot.symposionbb.view.ForumBean" %>
 
 <%
-	MyJavaBean jb = new MyJavaBean();
+  //ForumBean fb = new ForumBean();
+
+
+UserService userService = UserServiceFactory.getUserService();
+User user = userService.getCurrentUser();
+
+PersistenceManager pm = PMF.get().getPersistenceManager();
+
+String query = "";
+String forumKey="";
+String boardKey="";
+
+String paramForum = "";
+String paramBoard = "";
+String paramThread = "";
+String paramComments = "";
+
+/*
+Der Parameter "forum" muss entweder immer oder nie angegeben sein.
+"board" bezeichnet das Board, das auf der Startseite angezeigt wird
+oder das vom Benutzer ausgewählt wurde. Muss immer angegeben sein bzw. ist, 
+wenn nichts angegeben ist, das in sortierreichenfolge erste board.
+"thread" ist der anzuzeigende Thread. Ist der parameter vorhanden, wird die
+thread-seite angezeigt. ist er nicht vorhanden wird die board-übersicht und
+das gewählte board angezeigt.
+"comments" ist die Anzahl an kommentaren zu einem thread. wird nur auf der
+thread-seite verwendet und dient dazu, zwischen schon besuchten und noch
+nicht besuchten links unterscheiden zu können. hat hier also gar keine funktion,
+nur im link auf diese seite, wie er auf der board-seite angezeigt wird.
+*/
+
+paramForum = request.getParameter("forum");
+paramBoard = request.getParameter("board");
+paramThread = request.getParameter("thread");
+paramComments = request.getParameter("comments");
+
+query = "select from " + Forum.class.getName();// + " WHERE Id == " + paramForum;
+List<Forum> forums = (List<Forum>) pm.newQuery(query).execute();
+
+Forum forum = null;
+if (paramForum == "" || paramForum == null) {
+	forum = forums.get(0); //ToDo: Vernünftige Auswahl sicherstellen. 
+} else {
+	for (Forum f : forums) {
+		if (f.getKey().getId() == Long.parseLong(paramForum)) {
+			forum = f;
+		}
+	}
+}
+
+if (forum == null) {
+	response.sendRedirect("/error.jsp?forum_ist_null");
+}
+
+List<Board> boards = forum.getBoards();
+Board board = null;
+if (paramBoard == "" || paramBoard == null) {
+	board = boards.get(0); //ToDo: Vernünftige Auswahl sicherstellen.
+} else {
+	for (Board b : boards) {
+		if (b.getKey().getId() == Long.parseLong(paramBoard)) {
+			board = b;
+		}
+	}
+}
+
+if (board == null) {
+	response.sendRedirect("/error.jsp?board_ist_null");
+}
+
+/*
+Hier sind jetzt natürlich alle Beiträge drin, die überhaupt am Board zu finden sind. Völlig unsortiert,
+neue Themen und Kommentare zu allen Themen... Kurz: eine Menge Daten.
+*/
+List<Thread> threads = board.getThreads(); // TODO: besser machen.
+
+//Die ältesten Themen gehören ans Ende der Liste
+Collections.reverse(threads);
+
+Thread thread = null;
+List<Comment> replys = new ArrayList<Comment>();
+if (paramThread == "" || paramThread == null) {
+	//board = boards.get(0); //ToDo: Vernünftige Auswahl sicherstellen.
+} else {
+	for (Thread t : threads) {
+		if (t.getKey().getId() == Long.parseLong(paramThread)) {
+			thread = t;
+		}
+	}
+	
+	replys = thread.getReply();
+	
+}
+
+Calendar cal = new GregorianCalendar( TimeZone.getTimeZone("GMT") );
+
+DateFormat fmt = new SimpleDateFormat( "'am' dd.MM.yy 'um' hh:mm 'Uhr GMT'" );
+
+//System.out.println( fmt.format(cal.getTime()));
+
+
+
+
+
+//this.threads = boards.get(0).getThreads();
+
+//this.moderators = boards.get(0).getModerators();
+
+
+//http://forums.fofou.org/fofou/topic?id=1972334&comments=4
+//http://localhost:8888/forum.jsp
+//http://localhost:8888/forum
+//http://localhost:8888/forum?board=<id>&topic=<id>&comments=<Anzahl>
+//http://localhost:8888/forum?forum=<id>&board=<id>&topic=<id>&comments=<Anzahl>
+//http://symposion-bb.appspot.com/
 %>
+
 <html>
   <head>
     <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
     <meta name="robots" content="noindex, nofollow">
-    <title>Symposion</title>
+    <title><%= forum.getName() %></title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- link rel="icon" type="image/gif" href="animated_favicon1.gif" -->
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
@@ -28,95 +158,29 @@
 		<div id="pagehead">
 			<%@ include file="_pagehead.jsp" %>
 		</div>
-		
+
 		<div id="Menu">
 			<%@ include file="_menue_navigation.jsp" %>
-			<%@ include file="_menue_search.jsp" %>
-			<%@ include file="_menue_moderatoren.jsp" %>
+			<%//@ include file="_menue_search.jsp" %>
+			<%//@ include file="_menue_moderatoren.jsp" %>
+<% if (userService.isUserLoggedIn() && userService.isUserAdmin()) { %>
 			<%@ include file="_menue_admin.jsp" %>
+<% } %>
 			<%@ include file="_menue_accesskey.jsp" %>
 		</div>
 	
-		<div id="Inhalt">
-			<!-- a class="navigation" href="#neuePosts">Zu den neuen Beiträgen</a -->
-		
-			<h2><a id="target" name="pagecontent_headline">Ein Board<%       out.println( "(" + jb.getDateString() + ")" );
- %></a></h2>
-			<!-- a href="/topic?id=1183321#1184321" title="Nur neue oder geänderte Beiträge anzeigen"><img id="link1184321" src="/img/delete.jpg" alt="Hier klicken, um nur neue oder geänderte Beiträge anzuzeigen." border="0" height="16" width="16"></a -->
-			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a id="showNewLink" href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
-			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a id="showAllLink" href="javascript:toggle();">Alle anzeigen.</a></div>
-			<div id="separator"></div>
-		
-			<div id="topics">
-				<p name="newPost"><!-- img align="left" id="link1184321" src="/img/pin.jpg" alt="Sticky" border="0" height="16" width="16" / -->
-					<a href="../topic.jsp">In Centonovella ich las, zu Florenz vor Zeiten sa&szlig; ein jung Edelmann, weit erkannt.</a>
-					<em>Hans Sachs</em><span>(6 Kommentare)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=1" title="">Fridrich Alberigo genannt.</a>
-					<em>Jessika Lowe</em><span>(0)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=2" title="">Der in herzlich Liebe brennet gen einem edlen Weib, genennet Giovanna.</a>
-					<em>Kristian Gottschalk</em><span>(1)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=3" title="">An Gut sehr reich, an Ehren stet und gar lobleich.</a>
-					<em>Angelika Kortig</em><span>(1)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=4" title="">Sie verachtet all sein Lieb, an ihrem Herren treulich blieb.</a>
-					<em>Daniel Molina</em><span>(1)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=5" title="">Reichlich Friederich ausgab, bis er verschwendet gro&szlig;e Hab.</a>
-					<em>Claus Petersen</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=6" title="">Er verpf&auml;ndet all sein Gut, zog auf ein Sitz und in Armut.</a>
-					<em>Petra Wagner</em><span>(1)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=7" title="">Nichts dann ein edlen Falken h&auml;tt, mit dem er t&auml;glich jagen t&auml;t.</a>
-					<em>Uta Förster</em><span>(3)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=8" title="">Ihr Herr, der starb und sich begab.</a>
-					<em>Christine Kappel</em><span>(0)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=9" title="">Der Frauen Sohn, ein junger Knab ward schwerlich krank.</a>
-					<em>Kathrin Neumann</em><span>(1)</span></p>
-				<p name="newPost"><a href="/topic.jsp?comments=10" title="">Bis in den tod</a>
-					<em>Tobias Bergmann</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=11" title="">Sprach: &quot;Mutter, ich bitt dich durch Gott, hilf, da&szlig; Friedrichs Falk mir werd, so nimmt ein End all mein Beschwerd.&quot;.</a>
-					<em>Martin Hüber</em><span>(2)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=12" title="">Die Mutter tr&ouml;st&#39; ihn, den zu bringen.</a>
-					<em>Leonie Dietrich</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=13" title="">Kam zu Friedrich in den Dingen.</a>
-					<em>Stephanie Scholz</em><span>(2)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=14" title="">Zum Fr&uuml;hmal t&auml;t sich laden, froh war Friedrich ihrer Gnaden.</a>
-					<em>Maria Hartmann</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=15" title="">H&auml;tt doch weder Fleisch noch Fisch damit er speiset seinen Tisch.</a>
-					<em>Sabine Meier</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=16" title="">Armut, Ungl&uuml;ck t&auml;t ihn walken.</a>
-					<em>Juliane Hoch</em><span>(0)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=17" title="">Er w&uuml;rgt sein lieben Falken.</a>
-					<em>Petra Wagner</em><span>(5)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=18" title="">Briet den und zu Tische trug, zerlegt ihn h&ouml;flich, klug.</a>
-					<em>Ursula Lang</em><span>(2)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=19" title="">Nach dem sprach die Frau mit Sitten.</a>
-					<em>Philipp Schwarz</em><span>(1)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=20" title="">&quot;Durch euer Lieb will ich euch bitten um euren edlen Falken gut.</a>
-					<em>Mandy Bürger</em><span>(3)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=21" title="">Nach dem mein Sohn sich sehnen tut.</a>
-					<em>Lucas Schmid</em><span>(3)</span></p>
-				<p name="oldPost"><a href="/topic.jsp?comments=22" title="">Todkrank, wo ihr ihm den tut geben, rettet ihr sein junges Leben.</a>
-					<em>Luca Jung</em><span>(13)</span></p>
-			</div>
-			
-			<div id="separator"></div>
-			
-			<!-- div id="buttons"><input type="button" name="Name" value="Neues Thema erstellen" onclick="Aktion"></div -->
-			<div id="buttons">
-				<form action="/newTopic.jsp" method="link">
-<%
-    if (user != null) {
-%>
-					<input type="submit" value="Neues Thema hinzufügen">
+<%	if (thread != null) { %>
+		<%@ include file="_content_thread.jsp" %>
 <% } else { %>
-					<input alt="test" type="submit" value="Neues Thema hinzufügen" disabled="disabled" /><br />
-					Hinweis: Zum Schreiben bitte <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">anmelden</a>.
-<% } %>					
-				</form>
-			</div>
-		</div>
-	
-	<%@ include file="_footnote.jsp" %>
+		<%@ include file="_content_board.jsp" %>
+<% } %>	
+
+		<%@ include file="_footnote.jsp" %>
 	
 	</div>    
     
   </body>
 </html>
+<% 
+	pm.close();		
+%>

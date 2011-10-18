@@ -5,19 +5,44 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
-	<servlet>
+	<!-- servlet>
 		<servlet-name>Symposion</servlet-name>
-		<servlet-class>com.appspot.symposionbb.SymposionServlet</servlet-class>
+		<servlet-class>test.symposion.SymposionServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Symposion</servlet-name>
 		<url-pattern>/symposion</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping -->
+	
+    <servlet>
+        <servlet-name>init</servlet-name>
+        <servlet-class>com.appspot.symposionbb.InitForumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>init</servlet-name>
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
+	
+    <servlet>
+        <servlet-name>newThread</servlet-name>
+        <servlet-class>com.appspot.symposionbb.NewThreadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newThread</servlet-name>
+        <url-pattern>/newThread</url-pattern>
+    </servlet-mapping>
 
-
-
+    <servlet>
+        <servlet-name>newComment</servlet-name>
+        <servlet-class>com.appspot.symposionbb.NewCommentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newComment</servlet-name>
+        <url-pattern>/newComment</url-pattern>
+    </servlet-mapping>
+    
 	<welcome-file-list>
-		<welcome-file>forum.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>

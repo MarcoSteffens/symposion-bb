@@ -1,11 +1,4 @@
-<%@ page import="com.google.appengine.api.users.User" %>
-<%@ page import="com.google.appengine.api.users.UserService" %>
-<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
-<%
-    UserService userService = UserServiceFactory.getUserService();
-    User user = userService.getCurrentUser();
-%>
-		<h1>Name des Forums</h1><!-- &Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu; -->
+		<h1><%= forum.getName() %></h1><!-- &Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu; -->
 <div id="accessibility">
 <a href="/screenreader.jsp">Hinweis für Nutzer von Screenreadern</a>
 </div>
@@ -24,4 +17,4 @@ Angemeldet als: <%= user.getNickname() %> (<a href="<%= userService.createLogout
 <%
     }
 %>
-		<!-- p>Die Beschreibung des Forums kann auch mehrzeilig sein, aber mehrere Absätze sind vermutlich nicht unbedingt notwendig.</p -->
+		<!--  p><%= forum.getDescription() %></p -->
