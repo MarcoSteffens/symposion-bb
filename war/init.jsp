@@ -1,73 +1,56 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.jdo.PersistenceManager" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="com.appspot.symposionbb.model.Forum" %>
+<%@ page import="com.appspot.symposionbb.model.Board" %>
+<%@ page import="com.appspot.symposionbb.PMF" %>
 
 <html>
   <head>
-    <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
-    <meta name="robots" content="noindex, nofollow">
-    <title>Symposion</title>
-	<link rel="shortcut icon" href="favicon.ico">
-	<!-- link rel="icon" type="image/gif" href="animated_favicon1.gif" -->
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-	<script type="text/javascript" src="../scripts/javascript.js" charset="ISO-8859-1"></script>
-	<style type="text/css">
-		<!--
-		-->
-	</style>
   </head>
+
   <body>
-   
-	<div id="Seite">
-	
-		<div id="pagehead">
-			<%@ include file="_pagehead.jsp" %>
-		</div>
-		
-		<div id="Menu">
-		</div>
-	
-		<div id="Inhalt">
-		
-			<h2><a name="pagecontent_headline">Neues Forum anlegen</a></h2>
-		
-		    <form action="/init" method="post">
-				<table border="0">
-					<tr>
-						<td>Titel des Forums:</td>
-						<td><input type="text" size="40" maxlength="60" name="title"></td>
-					</tr>
-					<tr>
-						<td>Beschreibung des Forums:</td>
-						<td><textarea cols="30" rows="8" name="description"></textarea></td>
-					</tr>
-					<tr>
-						<td>Name eines Boards:</td>
-						<td><input type="text" size="40" maxlength="60" name="board"></td>
-					</tr>
-					<tr>
-						<td>Moderator:</td>
-						<td>Max Mustermann</td>
-					</tr>
-				</table>		
-				<div align="Center">
-					<input type="submit" value="Speichern">
-				</div>
-		    </form>
-		
-		</div>
-			
-			<!-- div id="separator"></div>
-			<div id="buttons">
-				<form action="/newTopic.jsp" method="link">
-				<input type="submit" value="Neues Thema hinzufügen">
-				</form>
-			</div -->
-	
-	<%@ include file="_footnote.jsp" %>
-	
-	</div>    
-    
+
+<%
+    UserService userService = UserServiceFactory.getUserService();
+    User user = userService.getCurrentUser();
+    if (user != null) {
+%>
+<p>Hello, <%= user.getNickname() %>! (You can
+<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+<%
+    } else {
+    	response.sendRedirect("/login.jsp");
+    }
+%>
+
+<%
+    PersistenceManager pm = PMF.get().getPersistenceManager();
+    String query = "select from " + Board.class.getName();
+    List<Board> boards = (List<Board>) pm.newQuery(query).execute();
+    query = "select from " + Forum.class.getName();
+    List<Forum> forums = (List<Forum>) pm.newQuery(query).execute();
+    if (forums.isEmpty()) {
+    	%>
+    	<p>Neues Forum anlegen.</p>
+    <form action="/init" method="post">
+      <div>Name des Forums: <textarea name="forumName" rows="1" cols="60">Symposion BB</textarea></div>
+      <div>Beschreibung:<textarea name="forumDescription" rows="1" cols="60">Ein Forum zum testen.</textarea></div>
+      <!-- div><textarea name="title" rows="1" cols="60">Ein Board</textarea></div>
+      <div><textarea name="note" rows="3" cols="60">Ein Board zum testen.</textarea></div>
+      <div><textarea name="order" rows="1" cols="5">0</textarea></div -->
+      <div><input type="submit" value="Init" /></div>
+    </form>
+    	<%
+    } else {
+    	response.sendRedirect("/error.jsp");
+    }
+    pm.close();
+%>
+
   </body>
 </html>
