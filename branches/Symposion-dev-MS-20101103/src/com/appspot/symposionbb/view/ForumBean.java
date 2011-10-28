@@ -2,10 +2,11 @@ package com.appspot.symposionbb.view;
 
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
+
+import com.appspot.symposionbb.PMF;
 import com.appspot.symposionbb.model.Board;
 import com.appspot.symposionbb.model.Thread;
-import javax.jdo.PersistenceManager;
-import com.appspot.symposionbb.PMF;
 
 
 public class ForumBean {

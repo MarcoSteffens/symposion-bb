@@ -1,0 +1,2 @@
+<p id="Fusszeile"><%= forum.getName() %> is powered by Symposion BB</p>
+<% /*&Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu;*/ %>
