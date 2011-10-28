@@ -1,0 +1,75 @@
+<div id="Inhalt">
+
+	<!-- a class="inpagenav" accesskey="3" href="#neuePosts">Zu den neuen Beiträgen</a  -->
+
+	<h2><a name="pagecontent_headline"><span class="hide">Thema: </span><%= thread.getTitle() %></a></h2>
+
+<% /* 
+			<div id="showNew">Zur Zeit werden alle Beiträge angezeigt. <a href="javascript:toggle();">Nur neue oder geänderte anzeigen.</a></div>
+			<div id="showAll">Zur Zeit werden nur neue oder geänderte Beiträge angezeigt. <a href="javascript:toggle();">Alle anzeigen.</a></div>
+*/ %>
+			<!--div id="separator"></div-->
+
+	<div id="post" name="oldPost" class="test">
+		<div id="header"><a name=""><h4>Erstellt von <b><%= thread.getAuthor() %></b> <%= fmt.format(thread.getDate()) %>:</h4></a></div>
+		<div id="content">
+			<p><%= thread.getContent() %></p>
+		</div>
+		<div id="footer">
+<% if (user != null && userService.isUserAdmin() ) { %>		
+			<span><a href="../forum.jsp?board=<%= ((Long) board.getKey().getId()).toString() %>&thread=<%= ((Long) thread.getKey().getId()).toString() %>&action=delete" title="Kommentar löschen"><img id="link1184321" src="/img/delete.jpg" alt="Kommentar löschen" border="0" height="16" width="16"></a></span>
+<% } %>
+			<span id="spacer"></span>
+			<span><a href="../forum.jsp?board=<%= ((Long) board.getKey().getId()).toString() %>&thread=<%= ((Long) thread.getKey().getId()).toString() %>" title="Direktlink"><img id="link1184321" src="/img/icon-anker.gif" alt="Direktlink" border="0" height="16" width="16"></a></span>
+		</div>
+	</div>
+	<!-- div id="footer">12 Kommentare (+2 gelöscht)</div -->
+	<h3><%= replys.size() %> Kommentare</h3>
+<%
+	
+	for (Comment comment : replys) {
+%>		
+	<div id="post" name="oldPost">
+<%
+		if (comment.isDeleted()) {	
+%>
+		<div id="header">
+			<a name="<%= ((Long) comment.getKey().getId()).toString() %>" class="anchor"><h4><%= replys.indexOf(comment)+1 %>. Kommentar gelöscht</h4></a>
+		</div>
+		<div id="footer"></div>
+	</div>
+<%
+		} else {
+%>	
+		<div id="header">
+			<a name="<%= ((Long) comment.getKey().getId()).toString() %>" class="anchor"><h4><%= replys.indexOf(comment)+1 %>. <b><%= comment.getAuthor() %></b> schrieb <%= fmt.format(comment.getDate()) %>:</h4></a>
+		</div>
+		<div id="content">
+			<p><%= comment.getContent() %></p>
+		</div>
+		<div id="footer">
+<% if (user != null && userService.isUserAdmin() ) { %>		
+			<span><a href="../forum.jsp?board=<%= ((Long) board.getKey().getId()).toString() %>&thread=<%= ((Long) thread.getKey().getId()).toString() %>&comment=<%= ((Long) comment.getKey().getId()).toString() %>&action=delete" title="Kommentar löschen"><img id="link1184321" src="/img/delete.jpg" alt="Kommentar löschen" border="0" height="16" width="16"></a></span>
+<% } %>			
+			<span id="spacer"></span>
+			<span><a href="../forum.jsp?board=<%= ((Long) board.getKey().getId()).toString() %>&thread=<%= ((Long) thread.getKey().getId()).toString() %>#<%= ((Long) comment.getKey().getId()).toString() %>" title="Direktlink" onmouseover="rolloverOn('link', 1184321);" onmouseout="rolloverOff();"><img align="right" id="link1184321" src="/img/icon-anker.gif" alt="Direktlink" border="0" height="16" width="16"></a></span>
+		</div>
+	</div>
+<% } } %>
+
+	<div id="buttons">
+		<form action="/newComment.jsp" method="get">
+<%
+    if (user != null || !forum.isRegistrationNeededForWriting()) {
+%>					
+			<input type="hidden" name="forum" value="<%= forum.getKey().getId() %>">
+			<input type="hidden" name="board" value="<%= board.getKey().getId() %>">
+			<input type="hidden" name="thread" value="<%= thread.getKey().getId() %>">
+			<input type="submit" value="Kommentar hinzufügen">
+<% } else { %>
+			<input alt="test" type="submit" value="Kommentar hinzufügen" disabled="disabled" /> Zum Kommentieren bitte <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">anmelden</a>.
+<% } %>					
+		</form>
+	</div>
+	
+</div>

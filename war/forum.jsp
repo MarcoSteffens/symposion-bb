@@ -1,4 +1,5 @@
-<%@page import="com.appspot.symposionbb.model.Comment"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page errorPage="error.jsp"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.TimeZone"%>
@@ -6,7 +7,6 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
@@ -15,10 +15,10 @@
 <%@ page import="com.appspot.symposionbb.model.Forum" %>
 <%@ page import="com.appspot.symposionbb.model.Board" %>
 <%@ page import="com.appspot.symposionbb.model.Thread" %>
+<%@page import="com.appspot.symposionbb.model.Comment"%>
 <%@ page import="java.util.List" %>
-
 <%@ page import="com.appspot.symposionbb.view.ForumBean" %>
-
+<%@ page import="com.appspot.symposionbb.SymposionConsts" %>
 <%
   //ForumBean fb = new ForumBean();
 
@@ -36,6 +36,7 @@ String paramForum = "";
 String paramBoard = "";
 String paramThread = "";
 String paramComments = "";
+String paramAction = "";
 
 /*
 Der Parameter "forum" muss entweder immer oder nie angegeben sein.
@@ -54,13 +55,14 @@ nur im link auf diese seite, wie er auf der board-seite angezeigt wird.
 paramForum = request.getParameter("forum");
 paramBoard = request.getParameter("board");
 paramThread = request.getParameter("thread");
-paramComments = request.getParameter("comments");
+paramComments = request.getParameter("comment");
+paramAction = request.getParameter("action");
 
 query = "select from " + Forum.class.getName();// + " WHERE Id == " + paramForum;
 List<Forum> forums = (List<Forum>) pm.newQuery(query).execute();
 
 Forum forum = null;
-if (paramForum == "" || paramForum == null) {
+if (paramForum == null || paramForum.equals("")) {
 	forum = forums.get(0); //ToDo: Vernünftige Auswahl sicherstellen. 
 } else {
 	for (Forum f : forums) {
@@ -74,9 +76,15 @@ if (forum == null) {
 	response.sendRedirect("/error.jsp?forum_ist_null");
 }
 
+if (forum.getUserManagement().equals(SymposionConsts.USER_MANAGEMENT_NONE)){
+    if (user != null && !userService.isUserAdmin() ) {
+    	response.sendRedirect(userService.createLogoutURL("/forum.jsp"));//request.getRequestURI()
+    }
+}
+
 List<Board> boards = forum.getBoards();
 Board board = null;
-if (paramBoard == "" || paramBoard == null) {
+if (paramBoard == null || paramBoard.equals("")) {
 	board = boards.get(0); //ToDo: Vernünftige Auswahl sicherstellen.
 } else {
 	for (Board b : boards) {
@@ -101,7 +109,7 @@ Collections.reverse(threads);
 
 Thread thread = null;
 List<Comment> replys = new ArrayList<Comment>();
-if (paramThread == "" || paramThread == null) {
+if (paramThread == null || paramThread.equals("")) {
 	//board = boards.get(0); //ToDo: Vernünftige Auswahl sicherstellen.
 } else {
 	for (Thread t : threads) {
@@ -111,23 +119,45 @@ if (paramThread == "" || paramThread == null) {
 	}
 	
 	replys = thread.getReply();
-	
 }
 
-Calendar cal = new GregorianCalendar( TimeZone.getTimeZone("GMT") );
+if ( paramAction != null && !paramAction.equals("") ) {
+	
+	if (paramAction.equals("delete")) {
+		if ( paramComments != null && !paramComments.equals("") ) {
+			//comment löschen
+			for (Comment comment : replys) {
+				//if (comment.getKey().equals(paramComments)){
+				if (comment.getKey().getId() == Long.parseLong(paramComments)) {	
+					comment.setDeleted(true);
+				}
+			}
+			response.sendRedirect("/forum.jsp?board=" + paramBoard + "&thread=" + paramThread); 
+		} else if ( paramThread != null && !paramThread.equals("") ) {
+			//thread löschen
+			for (Thread th : threads) {
+				if (th.getKey().getId() == Long.parseLong(paramThread)){
+					th.setDeleted(true);
+				}
+			}
+			response.sendRedirect("/forum.jsp?board=" + paramBoard); 
+		} else {
+			response.sendRedirect("/error.jsp?unbekannter_fehler_behandeln_err01");
+		}
+	} else {
+		response.sendRedirect("/error.jsp?action_param_auswerten");	
+	}
+}
 
-DateFormat fmt = new SimpleDateFormat( "'am' dd.MM.yy 'um' hh:mm 'Uhr GMT'" );
+Calendar cal = new GregorianCalendar( TimeZone.getTimeZone("Europe/Berlin") );//GMT
 
+DateFormat fmt = new SimpleDateFormat( "'am' dd.MM.yy 'um' HH:mm 'Uhr'" );
+fmt.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
 //System.out.println( fmt.format(cal.getTime()));
-
-
-
-
 
 //this.threads = boards.get(0).getThreads();
 
 //this.moderators = boards.get(0).getModerators();
-
 
 //http://forums.fofou.org/fofou/topic?id=1972334&comments=4
 //http://localhost:8888/forum.jsp
@@ -139,7 +169,7 @@ DateFormat fmt = new SimpleDateFormat( "'am' dd.MM.yy 'um' hh:mm 'Uhr GMT'" );
 
 <html>
   <head>
-    <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <title><%= forum.getName() %></title>
 	<link rel="shortcut icon" href="favicon.ico">
@@ -156,26 +186,26 @@ DateFormat fmt = new SimpleDateFormat( "'am' dd.MM.yy 'um' hh:mm 'Uhr GMT'" );
 	<div id="Seite">
 	
 		<div id="pagehead">
-			<%@ include file="_pagehead.jsp" %>
+			<%@ include file="_pagehead.jsp_" %>
 		</div>
 
 		<div id="Menu">
-			<%@ include file="_menue_navigation.jsp" %>
-			<%//@ include file="_menue_search.jsp" %>
-			<%//@ include file="_menue_moderatoren.jsp" %>
+			<%@ include file="_menue_navigation.jsp_" %>
+			<%//@ include file="_menue_search.jsp_" %>
+			<%//@ include file="_menue_moderatoren.jsp_" %>
 <% if (userService.isUserLoggedIn() && userService.isUserAdmin()) { %>
-			<%@ include file="_menue_admin.jsp" %>
+			<%@ include file="_menue_admin.jsp_" %>
 <% } %>
-			<%@ include file="_menue_accesskey.jsp" %>
+			<%@ include file="_menue_accesskey.jsp_" %>
 		</div>
 	
 <%	if (thread != null) { %>
-		<%@ include file="_content_thread.jsp" %>
+		<%@ include file="_content_thread.jsp_" %>
 <% } else { %>
-		<%@ include file="_content_board.jsp" %>
+		<%@ include file="_content_board.jsp_" %>
 <% } %>	
 
-		<%@ include file="_footnote.jsp" %>
+		<%@ include file="_footnote.jsp_" %>
 	
 	</div>    
     

@@ -10,6 +10,7 @@
 <%@ page import="com.appspot.symposionbb.model.Board" %>
 <%@ page import="com.appspot.symposionbb.model.Thread" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.appspot.symposionbb.SymposionConsts" %>
 
 <%
 
@@ -110,15 +111,15 @@
 	<div id="Seite">
 	
 		<div id="pagehead">
-			<%@ include file="_pagehead.jsp" %>
+			<%@ include file="_pagehead.jsp_" %>
 		</div>
 		
 		<div id="Menu">
-			<%//@ include file="_menue_navigation.jsp" %>
-			<%//@ include file="_menue_search.jsp" %>
-			<%//@ include file="_menue_moderatoren.jsp" %>
-			<%//@ include file="_menue_admin.jsp" %>
-			<%//@ include file="_menue_accesskey.jsp" %>
+			<%//@ include file="_menue_navigation.jsp_" %>
+			<%//@ include file="_menue_search.jsp_" %>
+			<%//@ include file="_menue_moderatoren.jsp_" %>
+			<%//@ include file="_menue_admin.jsp_" %>
+			<%//@ include file="_menue_accesskey.jsp_" %>
 		</div>
 	
 		<div id="Inhalt">
@@ -141,20 +142,36 @@
 				</tr>
 				<tr>
 					<td>Autor:</td>
-					<td><%= user.getNickname() %><input type="hidden" name="threadAuthor" value="<%= user.getNickname() %>"></td>
-					<!-- td><input type="text" size="40" maxlength="60" readonly="readonly" name="threadAuthor" value="<%= user.getNickname() %>"></td -->
+<% if (forum.isRegistrationPossible()) { %>					
+					<td><input type="text" size="40" maxlength="60" name="threadAuthor" value="<% if (session.getAttribute("Author") != null) out.print(session.getAttribute("Author")); else if (user != null) out.print(user.getNickname()); %>"></td>
+<% } else if (forum.isRegistrationNeededForWriting()) { %>					
+					<td><input type="hidden" name="threadAuthor" value="<%= user.getUserId() %>"><%= user.getUserId() %></td>
+<% } %>					
 				</tr>
 			</table>
+			<div class="obfuscator d">
+				Tragen Sie hier nichts ein: <input type="text" size="5" maxlength="5" name="plz"></input>
+			</div>
+			<div>
+				Tragen Sie bitte die Zahlen in das Eingabefeld ein: 
+				<span class="obfuscator a">7</span> 
+				<span class="obfuscator b">8</span> 
+				<span class="obfuscator c">2</span> 
+				<span class="obfuscator a">1</span> 
+				<span class="obfuscator b">3</span> 
+				<span class="obfuscator c">5</span> 
+				<input type="text" size="4" maxlength="8" name="code"></input>
+			</div>
 			<div>thank you for thinking before posting</div>		
 			<div id="buttons">
 				<!-- input type="submit" value="Abbrechen" -->
 				<input type="submit" value="Senden">
-				<input type="button" name="cancel" value="Abbrechen" onclick="location.href='forum.jsp?forum=<%= forum.getKey().getId() %>&board=<%= board.getKey().getId() %>&thread=<%= thread.getKey().getId() %>'">
+				<input type="button" name="cancel" value="Abbrechen" onclick="location.href='forum.jsp?board=<%= board.getKey().getId() %>&thread=<%= thread.getKey().getId() %>'">
 			</div>
 		</form>
 	</div>
 	
-	<%@ include file="_footnote.jsp" %>
+	<%@ include file="_footnote.jsp_" %>
 	
 	</div>    
     

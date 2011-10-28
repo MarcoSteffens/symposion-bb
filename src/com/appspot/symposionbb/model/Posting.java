@@ -1,13 +1,6 @@
 package com.appspot.symposionbb.model;
 
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.Text;
-
-import org.apache.commons.lang.StringEscapeUtils;
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
@@ -15,6 +8,11 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+
+import org.apache.commons.lang.StringEscapeUtils;
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Text;
 
 @PersistenceCapable
 @Inheritance(strategy = InheritanceStrategy.SUBCLASS_TABLE)
@@ -31,12 +29,16 @@ public abstract class Posting {
     
     @Persistent
     private Date date;
+    
+    @Persistent
+    private boolean deleted;
 
     public Posting(String author, String content) {
     	
         this.author = author.trim();
         this.content = new Text(convert(content));
         this.date = new Date();
+        this.deleted = false;
     }
     
     public Key getKey() {
@@ -55,6 +57,10 @@ public abstract class Posting {
         return date;
     }
     
+    public boolean isDeleted() {
+    	return deleted;
+    }
+    
     public void setAuthor(String author) {
         this.author = author;
     }
@@ -65,6 +71,10 @@ public abstract class Posting {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+    
+    public void setDeleted(boolean state) {
+    	this.deleted = state;
     }
     
     private String convert(String content) {

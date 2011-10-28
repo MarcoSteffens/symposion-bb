@@ -1,21 +1,18 @@
 package com.appspot.symposionbb;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-//import java.util.logging.Logger;
-import org.apache.log4j.*;
+
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.appspot.symposionbb.model.Thread;
+import org.apache.log4j.Logger;
+
 import com.appspot.symposionbb.model.Board;
-
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
-
-import com.appspot.symposionbb.*;
+import com.appspot.symposionbb.model.Thread;
 
 public class NewThreadServlet extends HttpServlet {
     private static final Logger log = Logger.getLogger(NewThreadServlet.class.getName());
@@ -30,6 +27,9 @@ public class NewThreadServlet extends HttpServlet {
     	String content = req.getParameter("threadContent");
     	String author = req.getParameter("threadAuthor");
 
+    	HttpSession session = req.getSession();
+    	session.setAttribute("Author", author);
+    	
         Thread thread = new Thread(author, title, content);
 
         PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -63,6 +63,6 @@ public class NewThreadServlet extends HttpServlet {
     		resp.sendRedirect("/error.jsp");
     	}
         threadKey = ((Long) t.getKey().getId()).toString();
-        resp.sendRedirect("/forum.jsp?forum=" + forumKey + "&board=" + boardKey + "&thread=" + threadKey);
+        resp.sendRedirect("/forum.jsp?board=" + boardKey + "&thread=" + threadKey);
     }
 }

@@ -1,1 +1,0 @@
-<p id="Fusszeile">&Sigma;&Upsilon;&Mu;&Pi;&Omicron;&Sigma;&Iota;&Omicron;&Nu; is powered by Symposion BB</p>
